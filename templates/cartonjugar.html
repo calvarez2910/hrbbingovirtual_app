@@ -1,0 +1,284 @@
+{% extends 'site_template_simple.html' %}
+<!-- <style>
+	.container {
+		position: relative;
+		width: 50%;
+	}
+
+	.image {
+		opacity: 1;
+		display: block;
+		width: 100%;
+		height: auto;
+		transition: .5s ease;
+		backface-visibility: hidden;
+	}
+
+	.middle {
+		transition: .5s ease;
+		opacity: 0;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		-ms-transform: translate(-50%, -50%);
+		text-align: center;
+	}
+	 -->
+
+	/*.container:hover .image {
+	  opacity: 0.3;
+	}
+	.container:hover .middle {
+	  opacity: 1;
+	}*/
+</style>
+{% block body %}
+<div class="alert alert-success" role="alert">
+	<h4>Boleta Nro: {{ nrocarton }}</h4>
+</div>
+<!-- /#page-wrapper -->
+<div id="page-wrapper">
+
+	<div class="container-fluid">
+
+		<span class="alert alert-primary" role="alert">
+			Carton nro: {{ cartonelegido[0].nrocarton}}
+		</span>
+		<div class="row">
+
+			<div class="col-12">
+
+
+				<table id="tb1" class="table table-bordered">
+
+					<thead>
+
+					</thead>
+					<tbody>
+						<tr>
+
+							<td>
+								<img src="static\images\logo1.png" class="img-fluid img-thumbnail tda" alt="Sheep">
+							</td>
+							<td>
+								<img id="{{ cartonelegido[0].nro2 }}"
+									src="/static/images/{{ cartonelegido[0].nro2 }}.jpg" class="selected img-thumbnail"
+									alt="Sheep" >
+							</td>
+							<td>
+								<img src="static\images\logo1.png" class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							<td>
+								<img id="{{ cartonelegido[0].nro5 }}"
+									src="/static/images/{{ cartonelegido[0].nro5 }}.jpg" class="img-fluid img-thumbnail"
+									alt="Sheep">
+							</td>
+							<td>
+								<img src="static\images\logo1.png" class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							<td>
+								<img id="{{ cartonelegido[0].nro8 }}"
+									src="/static/images/{{ cartonelegido[0].nro8 }}.jpg" class="img-fluid img-thumbnail"
+									alt="Sheep">
+							</td>
+							<td>
+								<img src="static\images\logo1.png" class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+						</tr>
+						<tr>
+
+							<td>
+								<img id="{{ cartonelegido[0].nro1 }}"
+									src="/static/images/{{ cartonelegido[0].nro1 }}.jpg" class="img-fluid img-thumbnail"
+									alt="Sheep">
+
+							</td>
+							<td>
+								<img src="static\images\logo1.png" class="img-fluid img-thumbnail" alt="Sheep">
+
+							</td>
+							<td>
+								<img id="{{ cartonelegido[0].nro4 }}"
+									src="/static/images/{{ cartonelegido[0].nro4 }}.jpg" class="img-fluid img-thumbnail"
+									alt="Sheep">
+							</td>
+							<td>
+								<img src="static\images\logo1.png" class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							<td>
+								<img id="{{ cartonelegido[0].nro7 }}"
+									src="/static/images/{{ cartonelegido[0].nro7 }}.jpg" class="img-fluid img-thumbnail"
+									alt="Sheep">
+							</td>
+							<td>
+								<img src="static\images\logo1.png" class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							<td>
+								<img id="{{ cartonelegido[0].nro10 }}"
+									src="/static/images/{{ cartonelegido[0].nro10 }}.jpg"
+									class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+						</tr>
+						<tr>
+
+							<td>
+								<img src="static\images\logo1.png" class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							<td>
+								<img id="{{ cartonelegido[0].nro3 }}"
+									src="/static/images/{{ cartonelegido[0].nro3 }}.jpg" class="img-fluid img-thumbnail"
+									alt="Sheep">
+							</td>
+							<td>
+								<img src="static\images\logo1.png" class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							<td>
+								<img id="{{ cartonelegido[0].nro6 }}"
+									src="/static/images/{{ cartonelegido[0].nro6 }}.jpg" class="img-fluid img-thumbnail"
+									alt="Sheep">
+							</td>
+							<td>
+								<img src="static\images\logo1.png" class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							<td>
+								<img id="{{ cartonelegido[0].nro9 }}"
+									src="/static/images/{{ cartonelegido[0].nro9 }}.jpg" class="img-fluid img-thumbnail"
+									alt="Sheep">
+							</td>
+							<td>
+								<img src="static\images\logo1.png" class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+		</div>
+		<span class="alert alert-primary" role="alert">
+			Carton nro: {{ cartonelegido[1].nrocarton}}
+		</span>
+		<div class="row">
+			<div class="col-12">
+
+				<table class="table table-bordered table-dark">
+					<thead>
+
+					</thead>
+					<tbody>
+						<tr>
+
+							<td>
+								<img src="static\images\logo1.png" class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							<td>
+								<img id="{{ cartonelegido[1].nro2 }}"
+									src="/static/images/{{ cartonelegido[1].nro2 }}.jpg" class="img-fluid img-thumbnail"
+									alt="Sheep">
+							</td>
+							<td>
+								<img src="static\images\logo1.png" class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							<td>
+								<img id="{{ cartonelegido[1].nro5 }}"
+									src="/static/images/{{ cartonelegido[1].nro5 }}.jpg" class="img-fluid img-thumbnail"
+									alt="Sheep">
+							</td>
+							<td>
+								<img src="static\images\logo1.png" class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							<td>
+								<img id="{{ cartonelegido[1].nro8 }}"
+									src="/static/images/{{ cartonelegido[1].nro8 }}.jpg" class="img-fluid img-thumbnail"
+									alt="Sheep">
+							</td>
+							<td>
+								<img src="static\images\logo1.png" class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+						</tr>
+						<tr>
+
+							<td>
+								<img id="{{ cartonelegido[1].nro1 }}"
+									src="/static/images/{{ cartonelegido[1].nro1 }}.jpg" class="img-fluid img-thumbnail"
+									alt="Sheep">
+
+							</td>
+							<td>
+								<img src="static\images\logo1.png" class="img-fluid img-thumbnail" alt="Sheep">
+
+							</td>
+							<td>
+								<img id="{{ cartonelegido[1].nro4 }}"
+									src="/static/images/{{ cartonelegido[1].nro4 }}.jpg" class="img-fluid img-thumbnail"
+									alt="Sheep">
+							</td>
+							<td>
+								<img src="static\images\logo1.png" class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							<td>
+								<img id="{{ cartonelegido[1].nro7 }}"
+									src="/static/images/{{ cartonelegido[1].nro7 }}.jpg" class="img-fluid img-thumbnail"
+									alt="Sheep">
+							</td>
+							<td>
+								<img src="static\images\logo1.png" class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							<td>
+								<img id="{{ cartonelegido[1].nro10 }}"
+									src="/static/images/{{ cartonelegido[1].nro10 }}.jpg"
+									class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+						</tr>
+						<tr>
+
+							<td>
+								<img src="static\images\logo1.png" class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							<td>
+								<img id="{{ cartonelegido[1].nro3 }}"
+									src="/static/images/{{ cartonelegido[1].nro3 }}.jpg" class="img-fluid img-thumbnail"
+									alt="Sheep">
+							</td>
+							<td>
+								<img src="static\images\logo1.png" class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							<td>
+								<img id="{{ cartonelegido[1].nro6 }}"
+									src="/static/images/{{ cartonelegido[1].nro6 }}.jpg" class="img-fluid img-thumbnail"
+									alt="Sheep">
+							</td>
+							<td>
+								<img src="static\images\logo1.png" class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							<td>
+								<img id="{{ cartonelegido[1].nro9 }}"
+									src="/static/images/{{ cartonelegido[1].nro9 }}.jpg" class="img-fluid img-thumbnail"
+									alt="Sheep">
+							</td>
+							<td>
+								<img src="static\images\logo1.png" class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+		</div>
+		<div class="container">
+			<div class="container">
+
+				<form method="POST" action="/cartones">
+					<button class="btn btn-default">Inicio <i class="fas fa-chevron-left ml-1"></i></button>
+				</form>
+			</div>
+		</div>
+
+
+	</div>
+	<!-- /.container-fluid -->
+
+</div>
+<!-- Datatables initialization -->
+
+{% endblock %}

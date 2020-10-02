@@ -1,0 +1,11 @@
+Flask==0.12.2
+Flask-Login==0.4.0
+Flask-Bcrypt==0.7.1
+Flask-SQLAlchemy==2.2
+Werkzeug==0.15.3
+Flask-Mail
+uwsgi
+psycopg2-binary
+mercadopago
+pandas
+

@@ -1,0 +1,135 @@
+{% extends 'site_template.html' %}
+
+{% block body %}
+<div id="page-wrapper">
+
+    <div class="container-fluid">
+        <div class="panel panel-login">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <a href="/">Ir a pagina anterior</a>
+                    </div>
+
+                </div>
+                <hr>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <div><span>Nombres:</span></div>
+                        <div class="form-group">
+                            <input type="text" name="nombre" id="nombre" tabindex="1" class="form-control"
+                                placeholder="Nombre" value="{{ user.nombre }}">
+                        </div>
+                        <div><span>Apellidos:</span></div>
+                        <div class="form-group">
+                            <input type="text" name="apellido" id="apellido" tabindex="2" class="form-control"
+                                placeholder="Apellido" value="{{ user.apellido }}">
+                        </div>
+                        <div><span>DNI::</span></div>
+                        <div class="form-group">
+                            <input type="number" name="dni" id="dni" tabindex="3" class="form-control" placeholder="DNI"
+                                value="{{ user.dni }}">
+                        </div>
+                        <div><span>Domicilio:</span></div>
+                        <div class="form-group">
+                            <input type="text" name="domiciliopart" id="domiciliopart" tabindex="4" class="form-control"
+                                placeholder="Domicilio" value="{{ user.domiciliopart }}">
+                        </div>
+                        <div><span>Localidad:</span></div>
+                        <div class="form-group">
+                            <input type="text" name="localidad" id="localidad" tabindex="5" class="form-control"
+                                placeholder="localidad" value="{{ user.localidad }}">
+                        </div>
+                        <div><span>Provincia:</span></div>
+                        <div class="form-group">
+                            <input type="text" name="provincia" id="provincia" tabindex="5" class="form-control"
+                                placeholder="provincia" value="{{ user.provincia }}">
+                        </div>
+                        <div><span>Telefono:</span></div>
+                        <div class="form-group">
+                            <input type="text" name="telefonocelular" id="telefonocelular" tabindex="6"
+                                class="form-control" placeholder="Telefono" value="{{ user.telefonocelular }}">
+                        </div>
+                        <!-- <div><span>Telefono Fijo:</span></div>
+                                    <div class="form-group">
+                                        <input type="text" name="telefonofijo" id="telefonofijo" tabindex="5"
+                                            class="form-control" placeholder="Telefono Fijo" value={{ user.telefonofijo }}>
+                                    </div> -->
+
+                        <div><span>Email:</span></div>
+                        <div class="form-group">
+                            <input type="email" name="email" id="email" tabindex="1" class="form-control"
+                                placeholder="Email" value={{ user.email }}>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-6 col-sm-offset-3">
+                                    <!--                                             <button class="generic_price_btn clearfix" name="nrocarton"
+                                                    value={{ nrocarton }} type="submit"> Confirmar informacion Personal
+                                                </button> -->
+
+                                    {% if origen == 1 %}
+                                    <button type="button" class="generic_price_btn clearfix" onclick="getuservalues()">
+                                        Confirmar informacion Personal
+                                    </button>
+                                    {% else %}
+                                    <input type="hidden" name="idusuario" id="idusuario" tabindex="1"
+                                        class="form-control" value={{ user.id }}>
+                                    <button type="button" class="generic_price_btn clearfix"
+                                        onclick="getuservaluesadmin()">
+                                        Guarda Datos de usuario
+                                    </button>
+                                    {% endif %}
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.container-fluid -->
+
+</div>
+<!-- /#page-wrapper -->
+<script>
+    function getuservalues() {
+        var persdata = {
+            nombre: document.getElementById("nombre").value,
+            apellido: document.getElementById("apellido").value,
+            email: document.getElementById("email").value,
+            telefonocelular: document.getElementById("telefonocelular").value,
+            localidad: document.getElementById("localidad").value,
+            domiciliopart: document.getElementById("domiciliopart").value,
+            dni: document.getElementById("dni").value,
+            provincia: document.getElementById("provincia").value
+        };
+        $.post('/guardapersonaldata/1', persdata)
+        alert("Los datos fueron guardados!")
+    }
+    function getuservaluesadmin() {
+        var persdata = {
+            idusuario: document.getElementById("idusuario").value,
+            nombre: document.getElementById("nombre").value,
+            apellido: document.getElementById("apellido").value,
+            email: document.getElementById("email").value,
+            telefonocelular: document.getElementById("telefonocelular").value,
+            localidad: document.getElementById("localidad").value,
+            domiciliopart: document.getElementById("domiciliopart").value,
+            dni: document.getElementById("dni").value,
+            provincia: document.getElementById("provincia").value
+        };
+        $.post('/guardapersonaldata/0', persdata)
+        alert("Los datos fueron guardados!")
+    }
+
+
+</script>
+{% endblock %}

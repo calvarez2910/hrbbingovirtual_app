@@ -1,0 +1,196 @@
+{% extends 'site_template.html' %}
+
+
+{% block body %}
+<!-- <link rel="stylesheet" type="text/css" href="static\font-awesome\css\font-awesome.min.css"> -->
+<!-- /#page-wrapper -->
+<div id="page-wrapper">
+	<div>
+		{% with messages = get_flashed_messages() %}
+		{% if messages %}
+		<ul class=flashes>
+			{% for message in messages %}
+			<font color="red">
+				<li>{{ message }}</li>
+			</font>
+			{% endfor %}
+		</ul>
+		{% endif %}
+		{% endwith %}
+	</div>
+	<div class="container-fluid table-responsive">
+		<hr>
+		<!-- Page Heading -->
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		<section>
+			<div id="top_x_div" style="width: 300px; height: 200px;"></div>
+		</section>
+		<hr>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3">
+					<form method="POST" action="/download">
+						<button class="btn-lg btn-primary" name="nrocarton" value=1 type="submit">
+							<i class="glyphicon glyphicon-download"></i> Descargar Boletas</button>
+					</form>
+				</div>
+				<div class="col-sm-3">
+					<form method="POST" action="/venderboleta">
+						<button class="btn-lg btn-primary" name="accion" value=1  type="submit">
+							<i class="glyphicon glyphicon-shopping-cart"></i> Vender una Boleta</button>
+					</form>
+				</div>
+				<div class="col-sm-3">
+					<form method="POST" action="/usuarios">
+						<button class="btn-lg btn-primary" name="nrocarton" value=1 type="submit">
+							<i class="glyphicon glyphicon-user"> </i> Ver Usuarios</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		<hr>
+		<div>
+			<table id="dtBasicExample" class=" table table-striped table-bordered " width="0%">
+				<thead>
+					<tr>
+						<th class="th-sm">Nro de Transaccion</th>
+						<th class="th-sm">Rifa</th>
+						<th class="th-sm">Nro Boleta</th>
+						<th class="th-sm">Fecha</th>
+						<th class="th-sm">Estado</th>
+						<th class="th-sm">Descripcion</th>
+						<th class="th-sm">Cliente</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for i in misrifas %}
+					<tr>
+
+						<td class="fit">
+							<form method="POST" action="/getgestion">
+								{% if i.estado == 1 %}
+								<button class="btn btn-danger btn-rounded disabled" name="nrocarton"
+									value={{ i.tran_id }}>
+									{{ i.tran_id }}</button>
+								{% elif i.estado == 2 %}
+								<div class="media align-items-center">
+									<button class="btn btn-warning btn-rounded disabled" name="nrocarton"
+										value={{ i.tran_id }} type="submit"> {{ i.tran_id }}</button>
+								</div>
+								{% else %}
+								<div class="media align-items-center">
+									<button class="btn btn-primary btn-rounded" name="nrocarton" value={{ i.tran_id }}
+										type="submit"> {{ i.tran_id }}</button>
+								</div>
+								{% endif %}
+							</form>
+						</td>
+						<td>{{ i.rifa }}</td>
+						<td>{{ i.nroboleta }}</td>
+						<td>{{ i.registrado }}</td>
+						<td>{% if i.estado_gestion == 'Pagada' %}
+							<i class="fa fa-check"></i> PAGADA
+							{% endif %}
+							{% if i.estado_gestion == 'Reservada' %}
+							RESERVADA
+							{% endif %}
+							{% if i.estado_gestion == 'Impaga' %}
+							<i class="fa fa-ban"></i> IMPAGA
+							{% endif %}
+							{% if i.estado_gestion == 'Sin Vender' %}
+							SIN VENDER
+							{% endif %}
+
+						</td>
+						<td>{{ i.datos }}</td>
+						<td>{{ i.nombre }} {{ i.apellido }}</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+
+			</table>
+
+
+
+
+			<!-- /.row -->
+
+
+
+		</div>
+	</div>
+	<!-- /.container-fluid -->
+
+</div>
+<!-- Datatables initialization -->
+<script src="/static/js/jquery.js"></script>
+<script>
+	// Basic example
+	$(document).ready(function () {
+		$('#dtBasicExample').DataTable({
+			"paging": true, // false to disable pagination (or any other option)
+			"language":
+			{
+	"sProcessing":     "Procesando...",
+	"sLengthMenu":     "Mostrar _MENU_ registros",
+	"sZeroRecords":    "No se encontraron resultados",
+	"sEmptyTable":     "Ningún dato disponible en esta tabla",
+	"sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+	"sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+	"sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+	"sInfoPostFix":    "",
+	"sSearch":         "Buscar:",
+	"sUrl":            "",
+	"sInfoThousands":  ",",
+	"sLoadingRecords": "Cargando...",
+	"oPaginate": {
+		"sFirst":    "Primero",
+		"sLast":     "Último",
+		"sNext":     "Siguiente",
+		"sPrevious": "Anterior"
+	},
+	"oAria": {
+		"sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+		"sSortDescending": ": Activar para ordenar la columna de manera descendente"
+	}
+}
+		});
+		$('.dataTables_length').addClass('bs-select');
+	});
+</script>
+<script type="text/javascript">
+	google.charts.load('current', { 'packages': ['bar'] });
+	google.charts.setOnLoadCallback(drawStuff);
+
+	function drawStuff() {
+		var data = new google.visualization.arrayToDataTable([
+
+			['Estado', 'Cantidad'],
+			{% for i in datos %}
+	["{{ i.estadoboleta }}", {{ i.cantidad }}],
+		{% endfor %}
+		]);
+
+	var options = {
+		title: 'Cantidad de boletas por estado',
+		width: 900,
+		legend: { position: 'none' },
+		chart: {
+			title: 'Cantidad por estado',
+			subtitle: '--'
+		},
+		bars: 'horizontal', // Required for Material Bar Charts.
+		axes: {
+			x: {
+				0: { side: 'top', label: 'Cantidad' } // Top x-axis.
+			}
+		},
+		bar: { groupWidth: "50%" }
+	};
+
+	var chart = new google.charts.Bar(document.getElementById('top_x_div'));
+	chart.draw(data, options);
+	};
+</script>
+{% endblock %}

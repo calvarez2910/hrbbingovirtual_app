@@ -1,0 +1,423 @@
+{% extends 'site_template.html' %}
+
+{% block body %}
+<link rel="stylesheet" type="text/css" href="static\css\pricing.css">
+<!-- /#page-wrapper -->
+<style>
+	#innerTtable {
+		border: 4px solid #1b1a1a;
+
+	}
+
+	#innerTtable2 {
+		border: 4px solid #5d5a5a;
+
+	}
+
+	#innerTtable3 {
+		border: 3px solid #0b0b0c;
+
+	}
+
+	#fuentenro {
+		font-size: large;
+		font-weight: bold;
+		font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+		width: 100%;
+		padding: 0px;
+		text-align: center;
+
+
+
+
+	}
+
+	#nroboleta {
+		width: 0%;
+		padding: 0px;
+		height: 0%;
+		background-color: rgb(144, 182, 144);
+
+	}
+</style>
+<div id="page-wrapper">
+
+	<div class="container-fluid table-responsive">
+
+		<!-- Page Heading -->
+		<div class="row">
+			<div class="col-lg-12">
+				<h3 class="page-header">
+					5.000 Boletas con 2 cartones de bingo cada uno
+					(usted participa con los 2 cartones)
+				</h3>
+
+			</div>
+			<!-- <div class="panel panel-primary"> -->
+			<div class="col-lg-12">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h5>BOLETAS DISPONIBLES</h5>
+					</div>
+					<div class="panel-body">
+						<form method="POST" action="/cartones">
+							<div class="container-fluid p-3 my-3 border">
+								<div class="row">
+									<span>Desde</span><button class="btn btn-outline-info btn-rounded btn-lg my-0" type="submit"
+										value={{desde}} name="btndesde">
+										{{desde}}</button>
+									<span> a </span>
+									<button class="btn btn-outline-info btn-rounded btn-lg my-0" type="submit" value={{hasta}}
+										name="btnhasta">{{hasta}}</button>
+								</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h5>BUSCAR UNA BOLETA EN ESPECIAL</h5>
+				</div>
+				<form class="form-inline md-form mr-auto mb-4" action="/cartones" method="post">
+					<input class="form-control mr-xl-2 text-center" type="number" placeholder="nro de boleta a buscar"
+						aria-label="Buscar" name="nroboleta" id="nroboletas">
+					<button class="btn btn-outline-info btn-rounded btn-lg my-0" type="submit" name="btn"
+						value='searchBol'>BUSCAR BOLETA</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- Page Heading -->
+	<!-- /.row -->
+	<!--Big blue-->
+
+
+	<table id="dtBasicExample" class="dt-responsive" width="100%">
+		<thead id="innerTtable3">
+			<tr>
+				<th class="text-center">.</th>
+				<th id="innerTtable3" class="text-center">
+					<h5> CARTON 1</h5>
+				</th>
+				<!-- 	<th class="center">-</th> -->
+				<th id="innerTtable3" class="text-center">
+					<h5> CARTON 2</h5>
+				</th>
+
+			</tr>
+		</thead>
+
+
+		<tbody id="innerTtable">
+			{% for i in boletasres %}
+			<tr id="innerTtable3">
+				<td id="nroboleta">{{ i.nroboleta }}</td>
+				<!-- <td id="nroboleta" class="success">
+							<form method="POST" action="/carton">
+								<button class="btn-sm btn-primary" name="nrocarton" value={{ i.nroboleta }}
+									type="submit">{{ i.nroboleta }}</button>
+							</form>
+						</td> -->
+				<!-- 	carton NRO 1 -->
+				<td id="innerTtable3" class="text/center lime lighten-4">
+					<table id="innerTtable2" class="table-responsive" width="0%">
+
+						<thead>
+
+							<form method="POST" action="/carton">
+								<button class="btn btn-primary btn-lg btn-block text-left" name="nrocarton"
+									value={{ i.nroboleta }} type="submit">CLICK PARA CONTINUAR:
+									{{ i.nroboleta }}</button>
+							</form>
+
+						</thead>
+						<tbody id="innerTtable2">
+							<tr id="innerTtable2">
+
+								<td id="innerTtable2">
+									<img src="static\images\logo3.png" class="img-fluid img-thumbnail" alt="Sheep">
+
+								</td>
+								<td id="innerTtable2">
+									{% if i.nro2 > 9 %}
+									<h4 id="fuentenro" class="text-center">{{ i.nro2 }}</h4>
+									{% else %}
+									<h4 id="fuentenro" class="text-center">0{{ i.nro2 }}</h4>
+									{% endif %}
+
+
+								</td>
+								<td id="innerTtable2">
+									<img src="static\images\logo3.png" class="img-fluid img-thumbnail" alt="Sheep">
+
+								</td>
+								<td id="innerTtable2">
+									<h4 id="fuentenro" class="text-center">{{ i.nro5 }}</h4>
+								</td>
+								<td id="innerTtable2">
+									<img src="static\images\logo3.png" class="img-fluid img-thumbnail" alt="Sheep">
+
+								</td>
+								<td id="innerTtable2">
+									<h4 id="fuentenro" class="text-center">{{ i.nro8 }}</h4>
+								</td>
+								<td id="innerTtable2">
+									<img src="static\images\logo3.png" class="img-fluid img-thumbnail" alt="Sheep">
+
+								</td>
+							</tr>
+							<tr id="innerTtable2">
+
+								<td id="innerTtable2">
+									{% if i.nro1 > 9 %}
+									<h4 id="fuentenro" class="text-center">{{ i.nro1 }}</h4>
+									{% else %}
+									<h4 id="fuentenro" class="text-center">0{{ i.nro1 }}</h4>
+									{% endif %}
+
+								</td>
+								<td id="innerTtable2">
+									<img src="static\images\logo3.png" class="img-fluid img-thumbnail" alt="Sheep">
+
+
+								</td>
+								<td id="innerTtable2">
+									<h4 id="fuentenro" class="text-center">{{ i.nro4 }}</h4>
+								</td>
+								<td id="innerTtable2">
+									<img src="static\images\logo3.png" class="img-fluid img-thumbnail" alt="Sheep">
+
+								</td>
+								<td id="innerTtable2">
+									<h4 id="fuentenro" class="text-center">{{ i.nro7 }}</h4>
+								</td>
+								<td id="innerTtable2">
+									<img src="static\images\logo3.png" class="img-fluid img-thumbnail" alt="Sheep">
+
+								</td>
+								<td id="innerTtable2">
+									<h4 id="fuentenro" class="text-center">{{ i.nro10 }}</h4>
+								</td>
+							</tr>
+							<tr id="innerTtable2">
+
+								<td id="innerTtable2">
+									<img src="static\images\logo3.png" class="img-fluid img-thumbnail" alt="Sheep">
+
+								</td>
+								<td id="innerTtable2">
+									<h4 id="fuentenro" class="text-center">{{ i.nro3 }}</h4>
+								</td>
+								<td id="innerTtable2">
+									<img src="static\images\logo3.png" class="img-fluid img-thumbnail" alt="Sheep">
+
+								</td>
+								<td id="innerTtable2">
+									<h4 id="fuentenro" class="display-1 text-center">{{ i.nro6 }}</h4>
+								</td>
+								<td id="innerTtable2">
+									<img src="static\images\logo3.png" class="img-fluid img-thumbnail" alt="Sheep">
+
+								</td>
+								<td id="innerTtable2">
+									<h4 id="fuentenro" class="display-1 text-center">{{ i.nro9 }}</h4>
+								</td>
+								<td id="innerTtable2">
+									<img src="static\images\logo3.png" class="img-fluid img-thumbnail" alt="Sheep">
+
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+				<!-- 	carton NRO 2 c2nro -->
+				<td id="innerTtable3" class="center lime lighten-4">
+					<table id="innerTtable2" class="table-responsive" width="0%">
+						<thead>
+
+							<form method="POST" action="/carton">
+								<button class="btn btn-primary btn-lg btn-block" name="nrocarton"
+									value={{ i.nroboleta }} type="submit">
+									CLICK PARA CONTINUAR:
+									{{ i.nroboleta }}</button>
+							</form>
+
+						</thead>
+						<tbody id="innerTtable2">
+							<tr id="innerTtable2">
+
+								<td id="innerTtable2">
+									<img src="static\images\logo3.png" class="img-fluid img-thumbnail" alt="Sheep">
+
+								</td>
+								<td id="innerTtable2">
+									{% if i.c2nro2 > 9 %}
+									<h4 id="fuentenro" class="text-center">{{ i.c2nro2 }}</h4>
+									{% else %}
+									<h4 id="fuentenro" class="text-center">0{{ i.c2nro2 }}</h4>
+									{% endif %}
+
+
+								</td>
+								<td id="innerTtable2">
+									<img src="static\images\logo3.png" class="img-fluid img-thumbnail" alt="Sheep">
+
+								</td>
+								<td id="innerTtable2">
+									<h4 id="fuentenro" class="text-center">{{ i.c2nro5 }}</h4>
+								</td>
+								<td id="innerTtable2">
+									<img src="static\images\logo3.png" class="img-fluid img-thumbnail" alt="Sheep">
+
+								</td>
+								<td id="innerTtable2">
+									<h4 id="fuentenro" class="text-center">{{ i.c2nro8 }}</h4>
+								</td>
+								<td id="innerTtable2">
+									<img src="static\images\logo3.png" class="img-fluid img-thumbnail" alt="Sheep">
+
+								</td>
+							</tr>
+							<tr id="innerTtable2">
+
+								<td id="innerTtable2">
+									{% if i.c2nro1 > 9 %}
+									<h4 id="fuentenro" class="text-center">{{ i.c2nro1 }}</h4>
+									{% else %}
+									<h4 id="fuentenro" class="text-center">0{{ i.c2nro1 }}</h4>
+									{% endif %}
+
+								</td>
+								<td id="innerTtable2">
+									<img src="static\images\logo3.png" class="img-fluid img-thumbnail" alt="Sheep">
+
+
+								</td>
+								<td id="innerTtable2">
+									<h4 id="fuentenro" class="text-center">{{ i.c2nro4 }}</h4>
+								</td>
+								<td id="innerTtable2">
+									<img src="static\images\logo3.png" class="img-fluid img-thumbnail" alt="Sheep">
+
+								</td>
+								<td id="innerTtable2">
+									<h4 id="fuentenro" class="text-center">{{ i.c2nro7 }}</h4>
+								</td>
+								<td id="innerTtable2">
+									<img src="static\images\logo3.png" class="img-fluid img-thumbnail" alt="Sheep">
+
+								</td>
+								<td id="innerTtable2">
+									<h4 id="fuentenro" class="text-center">{{ i.c2nro10 }}</h4>
+								</td>
+							</tr>
+							<tr id="innerTtable2">
+
+								<td id="innerTtable2">
+									<img src="static\images\logo3.png" class="img-fluid img-thumbnail" alt="Sheep">
+
+								</td>
+								<td id="innerTtable2">
+									<h4 id="fuentenro" class="text-center">{{ i.c2nro3 }}</h4>
+								</td>
+								<td id="innerTtable2">
+									<img src="static\images\logo3.png" class="img-fluid img-thumbnail" alt="Sheep">
+
+								</td>
+								<td id="innerTtable2">
+									<h4 id="fuentenro" class="display-1 text-center">{{ i.c2nro6 }}</h4>
+								</td>
+								<td id="innerTtable2">
+									<img src="static\images\logo3.png" class="img-fluid img-thumbnail" alt="Sheep">
+
+								</td>
+								<td id="innerTtable2">
+									<h4 id="fuentenro" class="display-1 text-center">{{ i.c2nro9 }}</h4>
+								</td>
+								<td id="innerTtable2">
+									<img src="static\images\logo3.png" class="img-fluid img-thumbnail" alt="Sheep">
+
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+
+				</td>
+
+			</tr>
+			{% endfor %}
+		</tbody>
+
+	</table>
+
+	<hr>
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h5>SEGUIR BUSCANDO BOLETAS DISPONIBLES</h5>
+		</div>
+		<div class="panel-body">
+			<form method="POST" action="/cartones">
+				<div class="container-fluid p-3 my-3 border">
+					<div class="row">
+						<span>Desde</span><button class="btn btn-outline-info btn-rounded btn-lg my-0" type="submit"
+							value={{desde}} name="btndesde">
+							{{desde}}</button>
+						<span> a </span>
+						<button class="btn btn-outline-info btn-rounded btn-lg my-0" type="submit" value={{hasta}}
+							name="btnhasta">{{hasta}}</button>
+					</div>
+			</form>
+		</div>
+	</div>
+	<hr>
+
+
+
+	<!-- /.row -->
+
+</div>
+
+</div>
+<!-- /.container-fluid -->
+
+
+<!-- Datatables initialization -->
+<script src="/static/js/jquery.js"></script>
+<script>
+	// Basic example
+	$(document).ready(function () {
+		$('#dtBasicExample').DataTable({
+			"paging": false, // false to disable pagination (or any other option)
+			"responsive": true,
+			"bFilter": false,
+			"language": {
+
+				"sProcessing": "Procesando...",
+				"sLengthMenu": "Ver de a _MENU_ Boletas",
+				"sZeroRecords": "Boleta vendida o reservada",
+				"sEmptyTable": "Boleta vendida o reservada",
+				"sInfo": "Mostrando _TOTAL_ Boletas disponibles",
+				"sInfoEmpty": "Boleta Vendida o Reservada",
+				"sInfoFiltered": "(filtrado de un total de _MAX_ Boletas)",
+				"sInfoPostFix": "",
+				"sSearch": "Buscar:",
+				"sUrl": "",
+				"sInfoThousands": ",",
+				"sLoadingRecords": "Cargando...",
+				"oPaginate": {
+					"sFirst": "Primero",
+					"sLast": "Último",
+					"sNext": "Siguiente",
+					"sPrevious": "Anterior"
+				},
+				"oAria": {
+					"sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+					"sSortDescending": ": Activar para ordenar la columna de manera descendente"
+				}
+			}
+		});
+		$('.dataTables_length').addClass('bs-select');
+	});
+</script>
+{% endblock %}

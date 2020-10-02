@@ -1,0 +1,87 @@
+{% extends 'site_template.html' %}
+
+{% block body %}
+<div id="page-wrapper">
+
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    CONSULTAS
+                </h1>
+
+            </div>
+        </div>
+        <!-- /.row -->
+        <!--Section: Contact v.2-->
+        <section class="mb-4">
+
+            <!--Section heading-->
+
+            <!--Section description-->
+            <p class="text-center w-responsive mx-auto mb-5">Tiene alguna consulta? Por favor escribanos y nos pondremos
+                en contacto con usted en la brevedad.
+
+            <div class="row">
+
+                <!--Grid column-->
+                <div class="col-md-9 mb-md-0 mb-5">
+                    <form id="contact-form" name="contact-form" method="POST" action="/consulta">
+
+                        <!--Grid row-->
+                        <div class="row">
+
+                            <!--Grid column-->
+
+                        </div>
+                        <!--Grid row-->
+
+                        <!--Grid row-->
+
+                        <!--Grid row-->
+
+                        <!--Grid row-->
+                        <div class="row">
+
+                            <!--Grid column-->
+                            <div class="col-md-12">
+
+                                <div class="md-form">
+                                    <textarea type="text" id="mensaje" name="mensaje" rows="4"
+                                        class="form-control md-textarea"></textarea>
+                                    <label for="mensaje">Su consulta:</label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!--Grid row-->
+
+
+
+                        <div class="text-center text-md-left">
+                            <button class="btn btn-primary" name="envio" value={{ user.id }}
+                                type="submit">Enviar</button>
+                        </div>
+                    </form>
+                    <div class="status"></div>
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-md-3 text-center">
+
+                </div>
+                <!--Grid column-->
+
+            </div>
+
+        </section>
+        <!--Section: Contact v.2-->
+    </div>
+    <!-- /.container-fluid -->
+
+</div>
+<!-- /#page-wrapper -->
+{% endblock %}

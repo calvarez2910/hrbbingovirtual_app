@@ -1,0 +1,31 @@
+{% extends 'site_template_simple.html' %}
+
+
+{% block body %}
+<div id="page-wrapper">
+
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+
+        <p>Latencia: <b><span id="ping-pong"></span>ms</b></p>
+        <h2>Enviar:</h2>
+        <form id="broadcast" method="POST" action='#'>
+            <input type="text" name="broadcast_data" id="broadcast_data" placeholder="Nro a Enviar">
+            <input type="submit" value="Broadcast">
+        </form>
+
+        <form id="disconnect" method="POST" action="#">
+            <input type="submit" value="Disconnect">
+        </form>
+        <h2>Recibido:</h2>
+        <div id="log"></div>
+
+    </div>
+    <!-- /.container-fluid -->
+
+</div>
+<!-- /#page-wrapper -->
+{% endblock %}
+
+
