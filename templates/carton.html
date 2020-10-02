@@ -1,0 +1,388 @@
+{% extends 'site_template.html' %}
+<style>
+	.container {
+	  position: relative;
+	  width: 50%;
+	}
+	.image {
+	  opacity: 1;
+	  display: block;
+	  width: 100%;
+	  height: auto;
+	  transition: .5s ease;
+	  backface-visibility: hidden;
+	}
+	.middle {
+	  transition: .5s ease;
+	  opacity: 0;
+	  position: absolute;
+	  top: 50%;
+	  left: 50%;
+	  transform: translate(-50%, -50%);
+	  -ms-transform: translate(-50%, -50%);
+	  text-align: center;
+	}
+	/*.container:hover .image {
+	  opacity: 0.3;
+	}
+	.container:hover .middle {
+	  opacity: 1;
+	}*/
+
+	</style>
+{% block body %}
+
+<!-- /#page-wrapper -->
+<div id="page-wrapper">
+
+	<div class="container-fluid">
+
+		<div class="alert alert-success" role="alert"><h4>Boleta Nro: {{ nrocarton }}</h4></div>
+
+
+		<span class="alert alert-primary" role="alert">
+			Carton nro: {{ cartonelegido[0].nrocarton}}
+		</span>
+		<div class="row">
+
+			<div class="col-12">
+
+
+				<table class="table table-bordered">
+
+					<thead>
+
+					</thead>
+					<tbody>
+						<tr>
+
+							<td>
+								<img src="static\images\logo1.png" class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							<td>
+								<img src="/static/images/{{ cartonelegido[0].nro2 }}.jpg"
+									class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							<td>
+								<img src="static\images\logo1.png" class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							<td>
+								<img src="/static/images/{{ cartonelegido[0].nro5 }}.jpg"
+									class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							<td>
+								<img src="static\images\logo1.png" class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							<td>
+								<img src="/static/images/{{ cartonelegido[0].nro8 }}.jpg"
+									class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							<td>
+								<img src="static\images\logo1.png" class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+						</tr>
+						<tr>
+
+							<td>
+								<img src="/static/images/{{ cartonelegido[0].nro1 }}.jpg"
+									class="img-fluid img-thumbnail" alt="Sheep">
+
+							</td>
+							<td>
+								<img src="static\images\logo1.png" class="img-fluid img-thumbnail" alt="Sheep">
+
+							</td>
+							<td>
+								<img src="/static/images/{{ cartonelegido[0].nro4 }}.jpg"
+									class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							<td>
+								<img src="static\images\logo1.png" class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							<td>
+								<img src="/static/images/{{ cartonelegido[0].nro7 }}.jpg"
+									class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							<td>
+								<img src="static\images\logo1.png" class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							<td>
+								<img src="/static/images/{{ cartonelegido[0].nro10 }}.jpg"
+									class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+						</tr>
+						<tr>
+
+							<td>
+								<img src="static\images\logo1.png" class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							<td>
+								<img src="/static/images/{{ cartonelegido[0].nro3 }}.jpg"
+									class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							<td>
+								<img src="static\images\logo1.png" class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							<td>
+								<img src="/static/images/{{ cartonelegido[0].nro6 }}.jpg"
+									class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							<td>
+								<img src="static\images\logo1.png" class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							<td>
+								<img src="/static/images/{{ cartonelegido[0].nro9 }}.jpg"
+									class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							<td>
+								<img src="static\images\logo1.png" class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+		</div>
+		<span class="alert alert-primary" role="alert">
+			Carton nro: {{ cartonelegido[1].nrocarton}}
+		</span>
+		<div class="row">
+			<div class="col-12">
+
+				<table class="table table-bordered table-dark">
+					<thead>
+
+					</thead>
+					<tbody>
+						<tr>
+
+							<td>
+								<img src="static\images\logo1.png" class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							<td>
+								<img src="/static/images/{{ cartonelegido[1].nro2 }}.jpg"
+									class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							<td>
+								<img src="static\images\logo1.png" class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							<td>
+								<img src="/static/images/{{ cartonelegido[1].nro5 }}.jpg"
+									class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							<td>
+								<img src="static\images\logo1.png" class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							<td>
+								<img src="/static/images/{{ cartonelegido[1].nro8 }}.jpg"
+									class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							<td>
+								<img src="static\images\logo1.png" class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+						</tr>
+						<tr>
+
+							<td>
+								<img src="/static/images/{{ cartonelegido[1].nro1 }}.jpg"
+									class="img-fluid img-thumbnail" alt="Sheep">
+
+							</td>
+							<td>
+								<img src="static\images\logo1.png" class="img-fluid img-thumbnail" alt="Sheep">
+
+							</td>
+							<td>
+								<img src="/static/images/{{ cartonelegido[1].nro4 }}.jpg"
+									class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							<td>
+								<img src="static\images\logo1.png" class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							<td>
+								<img src="/static/images/{{ cartonelegido[1].nro7 }}.jpg"
+									class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							<td>
+								<img src="static\images\logo1.png" class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							<td>
+								<img src="/static/images/{{ cartonelegido[1].nro10 }}.jpg"
+									class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+						</tr>
+						<tr>
+
+							<td>
+								<img src="static\images\logo1.png" class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							<td>
+								<img src="/static/images/{{ cartonelegido[1].nro3 }}.jpg"
+									class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							<td>
+								<img src="static\images\logo1.png" class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							<td>
+								<img src="/static/images/{{ cartonelegido[1].nro6 }}.jpg"
+									class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							<td>
+								<img src="static\images\logo1.png" class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							<td>
+								<img src="/static/images/{{ cartonelegido[1].nro9 }}.jpg"
+									class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+							<td>
+								<img src="static\images\logo1.png" class="img-fluid img-thumbnail" alt="Sheep">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+		</div>
+		<div class="container">
+			<div class="container">
+				{% if origen == 0 %}
+<!-- 				<form method="POST" action="/pago">
+					<button class="btn-lg btn-primary" name="nrocarton" value={{ nrocarton }} type="submit">
+						<i class="far fa-check-circle mr-1"></i> 🤑 ME GUSTA! QUIERO COMPRARLO</button>
+				</form> -->
+				<button type="button" class="btn-lg btn-primary" data-toggle="modal"
+				data-target="#myModal" >
+				<i></i> 🤑 ME GUSTA! QUIERO COMPRARLO
+			    </button>
+
+				{% endif %}
+				{% if origen == 1 %}
+
+
+				<form method="POST" action="/misrifas/0">
+					<button class="btn btn-primary" name="nrocarton" value={{ nrocarton }} type="submit">
+						<i class="far fa-check-circle mr-1"></i>volver</button>
+				</form>
+				{% endif %}
+				<br>
+				<form method="POST" action="/cartones">
+					<button type="submit" class="btn-lg btn-primary">👈VOLVER Y SEGUIR BUSCANDO <i ></i></button>
+				</form>
+			</div>
+		</div>
+
+
+	</div>
+	<!-- /.container-fluid -->
+	<div class="modal" id="myModal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+
+				<!-- Modal Header -->
+				<div class="modal-header">
+					<h4 class="modal-title">CONDICIONES GENERALES</h4>
+
+				   <!--  <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+				</div>
+
+				<!-- Modal body -->
+				<div class="modal-body">
+					<div class="scroll-box">
+						<p>Artículo 1°: El presente Bingo Virtual 1º edición, es organizado por la Asociación
+							Civil de Enfermedades Poco Frecuentes de Río Gallegos, a través del Agente Oficial
+							de Rifas Héctor Raúl Barragán con registro LOAS N° 001/95, contando con siete
+							partidas de bingo cuyos premios son los siguientes: 1º partida: $ 100.000, 2º partida:
+							$ 100.000, 3º partida: $ 100.000, 4º partida: $ 150.000, 5º partida: $ 150.000,
+							6º partida: $ 150.000 y 7º partida: $ 500.000 en efectivo. Otorga un total en premios
+							de pesos un millón doscientos cincuenta mil ($ 1.250.000) y la venta está destinada
+							únicamente para el ámbito de la Provincia de Santa Cruz.</p>
+						<p>Artículo 2°: Se ha estipulado una emisión virtual de 5.000 boletas comercializables
+							que van del 0000 al 4.999 y cuyo valor de venta se ha fijado en la suma de pesos mil
+							($ 1.000,00), pudiéndose abonar mediante los distintos medios de pago habilitados:
+							débito automático, tarjeta de crédito y/o Mercado Pago.
+						</p>
+						<p>Artículo 3°: Las partidas del Bingo programado para el día sábado 14/11/2020 a
+							partir de las 18 horas, se sorteará mediante la utilización de un bolillero o sorteadora,
+							en la cual ingresarán 59 bolillas. El control de las mismas será computarizado y los
+							números supervisados simultáneamente con el sorteo, determinando en forma
+							inmediata la existencia de cartones ganadores. Corresponde un único premio por
+							partida, en donde el adquirente participa con dos (2) cartones de Bingo con 10
+							números cada uno que se encuentran de manera virtual en nuestra app y resultará
+							ganador el comprador que llene en forma completa cualquiera de los dos cartones.
+							La fiscalización del sorteo de Bingo estará a cargo del Personal de Lotería para
+							Obras de Acción Social de la Provincia de Santa Cruz, un Escribano Público y
+							miembros de la Asociación Civil de Enfermedades Poco Frecuentes de Río
+							Gallegos.</p>
+						<p>Artículo 4°: De resultar necesario, previa autorización de LOAS, la Comisión
+							Directiva de la Asociación Civil de Enfermedades Poco Frecuentes de Río Gallegos
+							podrá modificar la fecha, lugar y horario del bingo comprometiéndose a hacerlo
+							conocer con la debida antelación mediante una campaña publicitaria por los medios
+							de comunicación y redes sociales.</p>
+						<p>Artículo 5°: Se prevee la transmisión del Bingo en vivo a partir de las 18 horas, a
+							través de nuestra red social Facebook y canal de YouTube “Agencia HRB” y
+							televisado en diferido a partir de las 22 horas por canal 9 para toda la Provincia de
+							Santa Cruz, pero en caso de existir algún inconveniente de cualquier índole, ajeno a
+							la Organización se procederá igualmente a la realización del sorteo dándose a
+							conocer los ganadores en forma inmediata vía telefónica y los mismos serán
+							publicados en los medios de difusión gráficos, radiales, televisivos y nuestras redes
+							sociales.</p>
+						<p>Artículo 6°: El adquirente será el único responsable de que el pago se efectúe en
+							término y para tener derecho a percibir cualquiera de los premios que se otorgan
+							deberá tener la boleta virtual totalmente cancelada veinticuatro (24) horas antes de
+							la realización del bingo el día 14/11/2020. Cuando la compra se realice con débito
+							automático, mercado pago y/o tarjeta de crédito, la Organización reconocerá la
+							validez del pago una vez que la entidad financiera efectivice el mismo. En caso de
+							llegar a rechazarlo, cualquiera fuera la causa, se perderá todo derecho a percibir
+							premio alguno, no aceptándose ninguna clase de pago después de realizado el
+							sorteo.</p>
+						<p>Artículo 7°: En caso de ser favorecida alguna boleta anulada por cualquier causa, el
+							sorteo se declarará nulo y se volverá a realizar nuevamente, con lo que se asegura
+							la adjudicación de todos los premios del Bingo. En caso de existir más de un
+							ganador en alguna partida, el premio será compartido por la cantidad de ganadores
+							en partes iguales.
+						</p>
+						<p>Artículo 8°: La entrega de los premios de parte de la Organización a los ganadores
+							se realizará mediante transferencias bancarias a sus respectivas cajas de ahorro,
+							dentro de los 30 días de efectuado el sorteo del bingo y además los adjudicatarios
+							de los distintos premios deberán cobrar los mismos dentro de un plazo de sesenta
+							(60) días corridos a partir de la fecha de sorteo. Los premios no cobrados dentro de
+							dicho plazo prescribirán automáticamente y pasarán a beneficio del Consejo
+							Provincial de Educación.</p>
+						<p>Artículo 9°: El cierre del presente bingo virtual, se realizará de acuerdo con las
+							condiciones prescriptas por LOAS, veinticuatro (24) horas antes del sorteo previsto
+							para el día 14/11/2020 y se labrará un acta de cierre ante Escribano Público,
+							detallando las boletas virtuales que no participan del bingo.</p>
+						<p>Artículo 10°: La administración y venta del presente bingo virtual estará a cargo del
+							Agente Oficial de Rifas Héctor Raúl Barragán, con registro LOAS N° 001/95 y
+							domicilio en Mariano Moreno 552 de la ciudad de Río Gallegos, lugar en donde se
+							podrán efectuar cualquier tipo de consulta y/o reclamos. Los teléfonos fijos son
+							(02966) 435467 o 428911 y WhatsApp 2966-489576 para recibir novedades,
+							recordatorios, ganadores y estado de la boleta.</p>
+						<p>Artículo 11°: Rigen para el presente bingo virtual 1º edición de la Asociación Civil de
+							Enfermedades Poco Frecuentes de Río Gallegos, las normas prescriptas en las
+							Leyes Provinciales Nº 2349, 2596, 2977 y 3041, su reglamentación y/o Resoluciones
+							de LOAS para este tipo de eventos, así como también por la Ley Nacional Nº 25246
+							y las resoluciones de la UIF vigentes.</p>
+						<p>Artículo 12°: La compra del bingo virtual implica la aceptación de las presentes
+							condiciones generales.</p>
+					</div>
+
+				</div>
+
+				<!-- Modal footer -->
+				<div class="modal-footer">
+					<form action="/pago" method="POST">
+						<button class="btn btn-danger" name="nrocarton" value={{ nrocarton }} type="submit"> ACEPTO LAS CONDIONES GENERALES
+						</button>
+					</form>
+					<!--   <button type="button" class="btn btn-danger" data-dismiss="modal">ACEPTO LAS CONDIONES
+						GENERALES</button> -->
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Datatables initialization -->
+
+{% endblock %}

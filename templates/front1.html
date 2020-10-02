@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>HRB Virtual</title>
+  <link rel='shortcut icon' type='image/x-icon' href='/static/images/favicon.ico' />
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+</head>
+
+<style>
+  .carousel-item {
+    height: 100vh;
+    min-height: 350px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+</style>
+
+
+<!------ Include the above in your HEAD tag ---------->
+
+<body>
+  <form method="GET" action="/login">
+    <button type="submit" class="btn btn-info btn-block">Ver boletas</button>
+  </form>
+
+  <!--Carousel Wrapper-->
+  <div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
+    <!--Indicators-->
+    <ol class="carousel-indicators">
+      <li data-target="#carousel-example-1z" data-slide-to="0" class="active"></li>
+      <li data-target="#carousel-example-1z" data-slide-to="1"></li>
+      <li data-target="#carousel-example-1z" data-slide-to="2"></li>
+    </ol>
+    <!--/.Indicators-->
+    <!--Slides-->
+    <div class="carousel-inner" role="listbox">
+
+      <!--First slide-->
+      <div class="carousel-item active">
+        <img class="d-block w-100" src="static\images\rifaH1.JPG" alt="First slide">
+      </div>
+      <!--/First slide-->
+      <!--Second slide-->
+      <div class="carousel-item">
+        <img class="d-block w-100" src="static\images\rifaH2.JPG" alt="Second slide">
+      </div>
+      <!--/Second slide-->
+      <!--Third slide-->
+      <div class="carousel-item">
+        <img class="d-block w-100" src="static\images\rifaH3.JPG" alt="Third slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="static\images\rifaH4.JPG" alt="Third slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="static\images\rifaH5.JPG" alt="Third slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="static\images\rifaH6.JPG" alt="Third slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="static\images\rifaH7.JPG" alt="Third slide">
+      </div>
+      <!--/Third slide-->
+    </div>
+    <!--/.Slides-->
+    <!--Controls-->
+    <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</body>
+<footer>
+
+    <button type="submit" class="btn btn-info btn-block">Ver boletas</button>
+  </form>
+</footer>
+<!--/.Controls-->
+
+<!--/.Carousel Wrapper-->
+
+<!-- <script>
+/*JS way for setting height: 100vh to slides' height*/
+/*const $slides = $(".owl-carousel .owl-slide");
+$slides.css("height", $(window).height());
+$(window).resize(() => {
+  $slides.css("height", $(window).height());
+});*/
+
+$(".owl-carousel").on("initialized.owl.carousel", () => {
+  setTimeout(() => {
+    $(".owl-item.active .owl-slide-animated").addClass("is-transitioned");
+    $("section").show();
+  }, 200);
+});
+
+const $owlCarousel = $(".owl-carousel").owlCarousel({
+  items: 1,
+  loop: true,
+  nav: true,
+  navText: [
+    '<svg width="50" height="50" viewBox="0 0 24 24"><path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z"/></svg>',
+    '<svg width="50" height="50" viewBox="0 0 24 24"><path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"/></svg>' /* icons from https://iconmonstr.com */
+  ]
+});
+
+$owlCarousel.on("changed.owl.carousel", e => {
+  $(".owl-slide-animated").removeClass("is-transitioned");
+
+  const $currentOwlItem = $(".owl-item").eq(e.item.index);
+  $currentOwlItem.find(".owl-slide-animated").addClass("is-transitioned");
+
+  const $target = $currentOwlItem.find(".owl-slide-text");
+  doDotsCalculations($target);
+});
+
+$owlCarousel.on("resize.owl.carousel", () => {
+  setTimeout(() => {
+    setOwlDotsPosition();
+  }, 50);
+});
+
+/*if there isn't content underneath the carousel*/
+//$owlCarousel.trigger("refresh.owl.carousel");
+
+setOwlDotsPosition();
+
+function setOwlDotsPosition() {
+  const $target = $(".owl-item.active .owl-slide-text");
+  doDotsCalculations($target);
+}
+
+function doDotsCalculations(el) {
+  const height = el.height();
+  const {top, left} = el.position();
+  const res = height + top + 20;
+
+  $(".owl-carousel .owl-dots").css({
+    top: `${res}px`,
+    left: `${left}px`
+  });
+}
+
+</script> -->
+
+</html>

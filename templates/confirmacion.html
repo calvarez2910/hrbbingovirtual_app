@@ -1,0 +1,69 @@
+{% extends 'site_template.html' %}
+<link rel="stylesheet" href="static/front/assets/css/main.css" />
+<noscript><link rel="stylesheet" href="static/front/assets/css/noscript.css" /></noscript>
+{% block body %}
+<div id="page-wrapper">
+    <div class="container my-5 z-depth-1">
+
+
+        <!--Section: Content-->
+        <section class="dark-grey-text">
+
+            <div class="row pr-lg-5">
+                <div class="col-md-7 mb-4">
+
+                    <div class="view">
+                        <img src="static\images\logoconfirm.png" class="img-fluid" alt="smaple image">
+                    </div>
+
+                </div>
+                <div class="col-md-5 d-flex align-items-center">
+                    <div>
+
+                        <h3 class="font-weight-bold mb-4">Muchas Gracias por colaborar!</h3>
+
+                        <hr>
+                        <h4>No te olvides de seguir el sorteo por <a
+                                href="https://www.youtube.com/channel/UCbQW0X97kn5VFSX2MveHBmQ"
+                                >streaming</span></a> el dia 14 de
+                            noviembre a las 18hs
+                        </h4>
+                        <h4>MUCHA SUERTE!!!</h4>
+                        <hr>
+                        <hr>
+                        <h4>En breve recibira un email con los datos de su compra</h4>
+
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h5>DATOS DE SU COMPRA</h5>
+                                <ul>
+                                    <li>Su nro de boleta: <p><strong>{{ data[0] }}</strong></p>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <div class="panel-body">
+                                <h5>Recuerde que esta boleta sera reservada y confirmada cuando el pago sea confirmado.
+                                </h5>
+                            </div>
+                        </div>
+
+                        <form method="GET" action="/">
+                            <button type="submit" class="btn btn-orange btn-rounded mx-0">Ir a Inicio</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!--Section: Content-->
+
+
+    </div>
+
+    <!-- /.container-fluid -->
+
+</div>
+<!-- /#page-wrapper -->
+{% endblock %}

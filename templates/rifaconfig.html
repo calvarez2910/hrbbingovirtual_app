@@ -1,0 +1,203 @@
+{% extends 'site_template.html' %}
+<style>
+    /* Red border */
+    hr.new1 {
+        border-top: 1px solid red;
+    }
+
+    /* Dashed red border */
+    hr.new2 {
+        border-top: 1px dashed red;
+    }
+
+    /* Dotted red border */
+    hr.new3 {
+        border-top: 1px dotted red;
+    }
+
+    /* Thick red border */
+    hr.new4 {
+        border: 1px solid red;
+    }
+
+    /* Large rounded green border */
+    hr.new5 {
+        border: 10px solid green;
+        border-radius: 5px;
+    }
+</style>
+{% block body %}
+<p>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+<ul class=flashes>
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+</p>
+<div id="page-wrapper">
+
+    <div class="container-fluid">
+        <div class="panel panel-login">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <a href="/">Ir a pagina anterior</a>
+                    </div>
+
+                </div>
+                <hr>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-2">
+
+                        <form method="post" action="/guardarifaconfig" enctype="multipart/form-data">
+                            <div>
+                                <h4>Condiciones Generales:</h4>
+                            </div>
+                            <div class="form-group">
+                                <input type="hidden" id="cond" name="cond" value="condgen">
+                                <input type="file" name="file" autocomplete="off" required>
+                                <input type="submit" value="Guardar Condiciones" name="condgen" id="condgen">
+                            </div>
+                        </form>
+                        <div>
+                            <img src={{ rifa.url_condgrnerales }} class="img-thumbnail" alt="Sheep" width="124"
+                                height="124">
+                        </div>
+                        <hr class="new5">
+                    </div>
+                    <div class="col-sm-2">
+                        <form method="post" action="/guardarifaconfig" enctype="multipart/form-data">
+                            <div>
+                                <h4>Fechas de Sorteo:</h4>
+                            </div>
+                            <div class="form-group">
+                                <input type="hidden" id="fechas" name="fechas" value="fechassort">
+                                <input type="file" name="file" autocomplete="off" required>
+                                <input type="submit" value="Guardar Fechas de Sorteo" name="fechassort" id="fechassort">
+                            </div>
+                        </form>
+                        <div>
+                            <img src={{ rifa.url_fechas }} class="img-fluid" alt="Sheep" width="124" height="124">
+                        </div>
+
+                        <hr class="new5">
+                    </div>
+                    <div class="col-sm-2">
+                        <form method="post" action="/guardarifaconfig" enctype="multipart/form-data">
+                            <div>
+                                <h4>Ganadores:</h4>
+                            </div>
+                            <div class="form-group">
+                                <input type="hidden" id="gana" name="ganadores" value="ganadores">
+                                <input type="file" name="file" autocomplete="off" required>
+                                <input type="submit" value="Guardar Ganadores" name="ganadores" id="ganadores">
+                            </div>
+                        </form>
+                        <div>
+                            <img src={{ rifa.url_ganadores }} class="img-fluid" alt="Sheep" width="124" height="124">
+                        </div>
+                        <hr class="new5">
+                    </div>
+                    <div class="col-sm-2">
+                        <form method="post" action="/guardarifaconfig" enctype="multipart/form-data">
+                            <div>
+                                <h4>Partidas:</h4>
+                            </div>
+                            <div class="form-group">
+                                <input type="hidden" id="part" name="partidas" value="partidas">
+                                <input type="file" name="file" autocomplete="off" required>
+                                <input type="submit" value="Guardar Partidas" name="partidas" id="partidas">
+                            </div>
+                        </form>
+                        <div>
+                            <img src={{ rifa.url_partidas }} class="img-fluid" alt="Sheep" width="124" height="124">
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="col-sm-2">
+                        <form method="post" action="/guardarifaconfig" enctype="multipart/form-data">
+                            <div>
+                                <h4>Preguntas Frequentes:</h4>
+                            </div>
+                            <div class="form-group">
+                                <input type="hidden" id="faq" name="faq" value="faq">
+                                <input type="file" name="file" autocomplete="off" required>
+                                <input type="submit" value="Guardar Preguntas Frequentes" name="faq" id="faq">
+                            </div>
+                        </form>
+                        <div>
+                            <img src={{ rifa.url_faq }} class="img-fluid" alt="no hay imagen" width="124" height="124">
+                        </div>
+                        <hr>
+                    </div>
+
+
+
+
+                </div>
+                <div class="row">
+                    <div class="col-sm-2">
+                        <div class="form-check">
+                            {% if rifa.cerrada == 1 %}
+                            <input type="checkbox" class="form-check-input" id="activaterifa" onclick="activarrifa()"
+                                checked />
+                            {% else %}
+                            <input type="checkbox" class="form-check-input" id="activaterifa" onclick="activarrifa()" />
+                            {% endif %}
+                            <label class="form-check-label">Desactivar Rifa</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <form class="form-inline">
+                            <div class="form-group mx-sm-3 mb-2">
+                                <label>Fecha de sorteo: {{ rifa.fechasorteo.strftime('%Y-%m-%d') }}</label>
+                                <input type="date"  value="{{ rifa.fechasorteo }}" class="form-control" id="fechasorteo" placeholder="{{ rifa.fechasorteo }}">
+                            </div>
+                            <button type="submit" class="btn btn-primary mb-2" onclick="guardafecha()">Guardar Fecha</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.container-fluid -->
+
+</div>
+<!-- /#page-wrapper -->
+<script>
+    function activarrifa() {
+        var rifaestado = {
+            estado: document.getElementById("activaterifa").checked
+        };
+        //document.getElementById('terms').onclick
+
+        $.post('/estadorifa', rifaestado)
+
+        if (rifaestado.estado) {
+            alert('ATENCION! La rifa esta ahora cerrada')
+        }
+
+    };
+    function guardafecha() {
+        var fechasorteo = {
+            fecha: document.getElementById("fechasorteo").value
+        };
+        //document.getElementById('terms').onclick
+
+        $.post('/estadorifa', fechasorteo)
+
+
+            alert('ATENCION! La fecha de sorteo se ha cambiado')
+
+
+    }
+
+</script>
+{% endblock %}

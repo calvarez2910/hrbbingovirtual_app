@@ -1,0 +1,258 @@
+<style type="text/css">
+  body,
+  html,
+  .body {
+    background: #f3f3f3 !important;
+  }
+</style>
+
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<container>
+
+  <spacer size="16"></spacer>
+
+  <row>
+    <columns>
+      <img src="http://epfsantacruz.com.ar/wp-content/uploads/2018/11/cropped-logo.png" class="img-fluid"
+        alt="smaple image">
+      <!--  <img src="{{ url_for('static',filename='images/logo3.png') }}" class="img-fluid" alt="smaple image"> -->
+      <h3>Gracias por su compra y colaborar con <a
+          href="https://www.facebook.com/Enfermedades.Poco.Frecuentes.Santa.Cruz.Argentina/">la Asociación Civil de
+          Enfermedades Poco Frecuentes de Río Gallegos.</a> </h3>
+
+      <br>
+      <hr>
+      <h4>No te olvides de seguir el sorteo por <a href="https://www.youtube.com/channel/UCbQW0X97kn5VFSX2MveHBmQ"
+          class="icon brands fa-youtube"><span class="label">streaming</span></a> el dia 14 de noviembre a las 18hs
+      </h4>
+      <h4>MUCHA SUERTE!!!</h4>
+      <hr>
+      <spacer size="9"></spacer>
+
+      <callout class="secondary">
+        <row>
+          <columns large="6">
+            <p>
+              <strong>Metodo de pago</strong><br />
+              {{metodopago}}
+            </p>
+
+            <p>
+              <strong>Su nro de Boleta elegida</strong><br />
+              {{nroboleta}}
+            </p>
+          </columns>
+
+        </row>
+      </callout>
+
+      <h4>Sus Cartones</h4>
+      <hr>
+      <span>
+        Carton nro: {{ cartonelegido[1].nrocarton}}
+      </span>
+      <table border="1">
+        <tbody>
+          <tr>
+
+            <td align="center">
+              <img src="{{ url_for('static',filename='images/logo3.png') }}" alt="Imagen">
+            </td>
+            <td align="center">
+              <h2>{{cartonelegido[1].nro2}}</h2>
+
+            </td>
+            <td align="center">
+              <img src="{{ url_for('static',filename='images/logo3.png') }}" alt="Imagen">
+            </td>
+            <td align="center">
+              <h2>{{cartonelegido[1].nro5}}
+
+            </td>
+            <td align="center">
+
+              <img src="{{ url_for('static',filename='images/logo3.png') }}" alt="Imagen">
+            </td>
+            <td align="center">
+              <h2>{{cartonelegido[1].nro8}}</h2>
+
+            </td>
+            <td align="center">
+              <img src="{{ url_for('static',filename='images/logo3.png') }}" alt="Imagen">
+            </td>
+          </tr>
+          <tr>
+
+            <td align="center">
+              <h2>{{cartonelegido[1].nro1}}</h2>
+
+
+            </td>
+            <td align="center">
+              <img src="{{ url_for('static',filename='images/logo3.png') }}" alt="Imagen">
+
+            </td>
+            <td align="center">
+              <h2>{{cartonelegido[1].nro4}}</h2>
+
+            </td>
+            <td align="center">
+              <img src="{{ url_for('static',filename='images/logo3.png') }}" alt="Imagen">
+            </td>
+            <td align="center">
+              <h2>{{cartonelegido[1].nro7}}</h2>
+
+            </td>
+            <td align="center">
+              <img src="{{ url_for('static',filename='images/logo3.png') }}" alt="Imagen">
+            </td>
+            <td align="center">
+              <h2>{{cartonelegido[1].nro10}}</h2>
+
+            </td>
+          </tr>
+          <tr>
+
+            <td align="center">
+              <img src="{{ url_for('static',filename='images/logo3.png') }}" alt="Imagen">
+            </td>
+            <td align="center">
+              <h2>{{cartonelegido[1].nro3}}</h2>
+
+            </td>
+            <td align="center">
+              <img src="{{ url_for('static',filename='images/logo3.png') }}" alt="Imagen">
+            </td>
+            <td align="center">
+              <h2>{{cartonelegido[1].nro6}}</h2>
+
+            </td>
+            <td align="center">
+              <img src="{{ url_for('static',filename='images/logo3.png') }}" alt="Imagen">
+            </td>
+            <td align="center">
+              <h2>{{cartonelegido[1].nro9}}</h2>
+
+            </td>
+            <td align="center">
+              <img src="{{ url_for('static',filename='images/logo3.png') }}" alt="Imagen">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <hr />
+      <span>
+        Carton nro: {{ cartonelegido[0].nrocarton}}</h2>
+      </span>
+      <table border="1">
+
+        <tbody>
+          <tr>
+
+            <td align="center">
+              <img src="{{ url_for('static',filename='images/logo3.png') }}" alt="Imagen">
+            </td>
+            <td align="center">
+              <h2>{{cartonelegido[0].nro2}}</h2>
+
+            </td>
+            <td align="center">
+              <img src="{{ url_for('static',filename='images/logo3.png') }}" alt="Imagen">
+            </td>
+            <td align="center">
+              <h2>{{cartonelegido[0].nro5}}</h2>
+
+            </td>
+            <td align="center">
+              <img src="{{ url_for('static',filename='images/logo3.png') }}" alt="Imagen">
+            </td>
+            <td align="center">
+              <h2>{{cartonelegido[0].nro8}}</h2>
+
+            </td>
+            <td align="center">
+              <img src="{{ url_for('static',filename='images/logo3.png') }}" alt="Imagen">
+            </td>
+          </tr>
+          <tr>
+
+            <td align="center">
+              <h2>{{cartonelegido[0].nro1}}</h2>
+
+
+            </td>
+            <td align="center">
+              <img src="{{ url_for('static',filename='images/logo3.png') }}" alt="Imagen">
+
+            </td>
+            <td align="center">
+              <h2>{{cartonelegido[0].nro4}}</h2>
+
+            </td>
+            <td align="center">
+              <img src="{{ url_for('static',filename='images/logo3.png') }}" alt="Imagen">
+            </td>
+            <td align="center">
+              <h2>{{cartonelegido[0].nro7}}</h2>
+
+            </td>
+            <td align="center">
+              <img src="{{ url_for('static',filename='images/logo3.png') }}" alt="Imagen">
+            </td>
+            <td align="center">
+              <h2>{{cartonelegido[0].nro10}}</h2>
+
+            </td>
+          </tr>
+          <tr>
+
+            <td align="center">
+              <img src="{{ url_for('static',filename='images/logo3.png') }}" alt="Imagen">
+            </td>
+            <td align="center">
+              <h2>{{cartonelegido[0].nro3}}</h2>
+
+            </td>
+            <td align="center">
+              <img src="{{ url_for('static',filename='images/logo3.png') }}" alt="Imagen">
+            </td>
+            <td align="center">
+              <h2>{{cartonelegido[0].nro6}}</h2>
+
+            </td>
+            <td align="center">
+              <img src="{{ url_for('static',filename='images/logo3.png') }}" alt="Imagen">
+            </td>
+            <td align="center">
+              <h2>{{cartonelegido[0].nro9}}</h2>
+
+            </td>
+            <td align="center">
+              <img src="{{ url_for('static',filename='images/logo3.png') }}" alt="Imagen">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+
+
+      <p></p>
+    </columns>
+  </row>
+  <row class="footer text-center">
+    <columns large="3">
+      <img src="https://agenciahrb.com/img/logo/logo.png" alt="">
+    </columns>
+    <columns large="3">
+      <p>
+        Nuestro telefono (2966) 489576 / 489626<br />
+        Nuestro email: hrbbingovirtual@hrb.com
+      </p>
+    </columns>
+
+    </columns>
+  </row>
+</container>

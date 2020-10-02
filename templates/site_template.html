@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>HRB Virtual</title>
+    <link rel='shortcut icon' type='image/x-icon' href='/static/images/favicon.ico' />
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        #footer {
+            position: fixed;
+        }
+    </style>
+
+    {% block imports %}
+    {% endblock %}
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/static/css/bootstrap.css" rel="stylesheet">
+    <link href="/static/css/mdb.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="/static/css/sb-admin.css" rel="stylesheet">
+    <link href="/static/css/mdb.min.css" rel="stylesheet">
+    <link href="/static/css/addons/datatables.min.css" rel="stylesheet">
+    <!-- Morris Charts CSS -->
+   <!--  <link href="/static/css/plugins/morris.css" rel="stylesheet"> -->
+    <link href="/static/css/style.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div id="mdb-preloader" class="flex-center">
+        <div class="preloader-wrapper active">
+            <div class="spinner-layer spinner-blue-only">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img class="navbar-brand" src="/static/images/logo2.png" alt="">
+
+                <p class="navbar-brand">{{ tituloPag }}</p>
+
+            </div>
+
+
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>
+                        {{ user.username }} <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="profile"><i class="fa fa-fw fa-user"></i> Perfil</a>
+                        </li>
+                        <!--                         <li>
+                            <a href="/settings"><i class="fa fa-fw fa-gear"></i> Configuracion</a>
+                        </li> -->
+                        <li class="divider"></li>
+                        <li>
+                            <a href="/logout"><i class="fa fa-fw fa-power-off"></i> Salir</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li class="active">
+                        <a href="/"><i class="fa fa-fw fa-dashboard"></i> Rifas Disponibles</a>
+                    </li>
+                    <li>
+                        <a href="/misrifas/0"> Mis Boletas</a>
+                    </li>
+                    <li>
+                        <a href="/profile"> Mis Datos</a>
+                    </li>
+                    <li>
+                        <a href="/faq">Preguntas Frequentes</a>
+                    </li>
+                    {% if rifaelegida != '' %}
+                    <li>
+                        <a href="/condiciones">Condiciones Generales</a>
+                    </li>
+                    <li>
+                        <a href="/fechasorteos">Fechas de Sorteos</a>
+                    </li>
+                    <li>
+                        <a href="/partidas">Detalle Partidas</a>
+                    </li>
+                    <li>
+                        <a href="/misrifas/1">Jugar Bingo</a>
+                    </li>
+                    <li>
+                        <a href="/ganadores">Listado Ganadores</a>
+                    </li>
+                    <li>
+                        <a href="/consulta">Consultas</a>
+                    </li>
+                    {% endif %}
+
+
+                    {% if user.Field12 == '1' %}
+                    <li>
+                        <a href="/backoffice">Gestionar</a>
+                    </li>
+                    <li>
+                        <a href="/guardarifaconfig">Configuracion Rifa</a>
+                    </li>
+<!--                     <li>
+                        <a href="/emitirjugada">Jugada ONLINE</a>
+                    </li> -->
+
+                    {% endif %}
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        {% block body %}
+        {% endblock %}
+
+    </div>
+    <!-- /#wrapper -->
+
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/mdb.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+
+
+
+
+    <!-- Plugin file -->
+    <script src="/static/js/addons/datatables.min.js"></script>
+
+    {% block footer %}
+    {% endblock %}
+
+</body>
+<footer class="page-footer font-small special-color-dark pt-4 fixed-bottom">
+
+    <!-- Footer Elements -->
+    <div class="container">
+
+
+    </div>
+    <!-- Footer Elements -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <a href="/">HRB</a>
+    </div>
+    <!-- Copyright -->
+
+</footer>
+
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>HRB Virtual</title>
+    <link rel='shortcut icon' type='image/x-icon' href='/static/images/favicon.ico' />
+    <script src="//code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+        crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"
+        integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function () {
+            // Use a "/test" namespace.
+            // An application can open a connection on multiple namespaces, and
+            // Socket.IO will multiplex all those connections on a single
+            // physical channel. If you don't care about multiple channels, you
+            // can set the namespace to an empty string.
+            namespace = '/test';
+
+            // Connect to the Socket.IO server.
+            // The connection URL has the following format, relative to the current page:
+            //     http[s]://<domain>:<port>[/<namespace>]
+            var socket = io(namespace);
+
+            // Event handler for new connections.
+            // The callback function is invoked when a connection with the
+            // server is established.
+            socket.on('connect', function () {
+                socket.emit('my_event', { data: 'I\'m connected!' });
+            });
+
+            // Event handler for server sent data.
+            // The callback function is invoked whenever the server emits data
+            // to the client. The data is then displayed in the "Received"
+            // section of the page.
+            socket.on('my_response', function (msg, cb) {
+                $('#log').text(msg.data);
+                if (cb)
+                    cb();
+            });
+
+            // Interval function that tests message latency by sending a "ping"
+            // message. The server then responds with a "pong" message and the
+            // round trip time is measured.
+
+            // Handler for the "pong" message. When the pong is received, the
+            // time from the ping is stored, and the average of the last 30
+            // samples is average and displayed.
+
+
+            // Handlers for the different forms in the page.
+            // These accept data from the user and send it to the server in a
+            // variety of ways
+            $('form#emit').submit(function (event) {
+                socket.emit('my_event', { data: $('#emit_data').val() });
+                return false;
+            });
+            $('form#broadcast').submit(function (event) {
+                socket.emit('my_broadcast_event', { data: $('#broadcast_data').val() });
+                return false;
+            });
+            $('form#join').submit(function (event) {
+                socket.emit('join', { room: $('#join_room').val() });
+                return false;
+            });
+            $('form#leave').submit(function (event) {
+                socket.emit('leave', { room: $('#leave_room').val() });
+                return false;
+            });
+            $('form#send_room').submit(function (event) {
+                socket.emit('my_room_event', { room: $('#room_name').val(), data: $('#room_data').val() });
+                return false;
+            });
+            $('form#close').submit(function (event) {
+                socket.emit('close_room', { room: $('#close_room').val() });
+                return false;
+            });
+            $('form#disconnect').submit(function (event) {
+                socket.emit('disconnect_request');
+                return false;
+            });
+            $(document).on('click', '#tb2 tr', function (e) {
+                $(this).addClass('selected');
+                alert('cambiado')
+                e.stopPropagation();
+            });
+        });
+
+    </script>
+
+
+
+    <style>
+        table.b {
+            border: 2px solid rgb(5, 5, 5);
+            overflow-x: auto;
+        }
+
+        td.tdb {
+            border: 2px solid rgb(8, 8, 8);
+            font-size: large;
+            text-align: center;
+
+        }
+        td.tda {
+            background-color: rgb(144, 182, 144);
+
+        }
+
+
+    </style>
+
+    {% block imports %}
+    {% endblock %}
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/static/css/bootstrap.css" rel="stylesheet">
+    <!-- <link href="/static/css/mdb.css" rel="stylesheet">-->
+    <!-- Custom CSS -->
+<!--     <link href="/static/css/sb-admin.css" rel="stylesheet">
+    <link href="/static/css/mdb.min.css" rel="stylesheet">
+    <link href="/static/css/addons/datatables.min.css" rel="stylesheet"> -->
+    <!-- Morris Charts CSS -->
+    <!-- <link href="/static/css/style.css" rel="stylesheet"> -->
+
+    <!-- Custom Fonts -->
+    <link href="/static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+</head>
+
+<body>
+    <div id="mdb-preloader" class="flex-center">
+        <div class="preloader-wrapper active">
+            <div class="spinner-layer spinner-blue-only">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <!--       <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img class="navbar-brand" src="static\images\logo2.png" alt="">
+
+                <p class="navbar-brand">{{ tituloPag }}</p>
+
+            </div>
+
+            <ul class="nav navbar-right top-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>
+                        {{ user.username }} <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="profile"><i class="fa fa-fw fa-user"></i> Perfil</a>
+                        </li>
+
+                        <li class="divider"></li>
+                        <li>
+                            <a href="/logout"><i class="fa fa-fw fa-power-off"></i> Salir</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+        </nav> -->
+
+        {% block body %}
+        {% endblock %}
+
+    </div>
+    <!-- /#wrapper -->
+
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/mdb.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <!-- Plugin file -->
+    <script src="/static/js/addons/datatables.min.js"></script>
+
+
+
+
+    {% block footer %}
+    {% endblock %}
+
+</body>
+<footer class="page-footer fixed-bottom ">
+
+
+    <div class="col-sm-3 bg-dark text-white center">
+
+        <h4 id="log" onchange="mark(this.text)"></h4>
+
+    </div>
+
+    <div class="col-sm-4 bg-dark text-white">
+        <hr>
+
+        <table id="tb2" class="b">
+
+            <tr>
+                <td class="tdb tda">01</td>
+                <td class="tdb">22</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+            </tr>
+            <tr>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+            </tr>
+            <tr>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+            </tr>
+            </tr>
+            <tr>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+                <td class="tdb">00</td>
+            </tr>
+        </table>
+        <hr>
+    </div>
+
+</footer>
+
+</html>

@@ -1,0 +1,256 @@
+{% extends 'site_template.html' %}
+
+{% block body %}
+<script>
+    $(document).ready(function(){
+        $("#myModal").modal('show');
+    });
+</script>
+
+<link rel="stylesheet" type="text/css" href="static\css\pricing.css">
+<div id="page-wrapper">
+
+    <div class="container-fluid">
+
+        <div id="generic_price_table">
+            <section>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!--PRICE HEADING START-->
+                            <div class="price-heading clearfix">
+                                <h1>COMO DESEA PAGAR?</h1>
+                            </div>
+                            <!--//PRICE HEADING END-->
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid">
+
+                    <div class="col-md-4">
+
+                        <!--PRICE CONTENT START-->
+                        <div class="generic_content clearfix">
+
+                            <!--HEAD PRICE DETAIL START-->
+                            <div class="generic_head_price clearfix">
+
+                                <!--HEAD CONTENT START-->
+                                <div class="generic_head_content clearfix">
+
+                                    <!--HEAD START-->
+                                    <div class="head_bg"></div>
+                                    <div class="head">
+                                        <span>MERCADOPAGO</span>
+                                    </div>
+                                    <!--//HEAD END-->
+
+                                </div>
+                                <!--//HEAD CONTENT END-->
+
+                                <!--PRICE START-->
+                                <div class="generic_price_tag clearfix">
+                                    <span class="price">
+
+                                        <span class="month">Pagar con MERCADOPAGO</span>
+                                    </span>
+                                </div>
+                                <!--//PRICE END-->
+
+                            </div>
+                            <!--//HEAD PRICE DETAIL END-->
+
+                            <!--FEATURE LIST START-->
+
+                            <!--//FEATURE LIST END-->
+
+                            <!--BUTTON START-->
+                            <div>
+                                <form method="POST" action="/confirmdata">
+                                    <button class="btn-lg" name="nrocarton" value={{ nrocarton + ',2' }} type="submit">
+                                        PAGAR</button>
+
+                                </form>
+                            </div>
+                            <!--//BUTTON END-->
+
+                        </div>
+                        <!--//PRICE CONTENT END-->
+
+                    </div>
+                    <!--//BLOCK ROW END-->
+
+
+                    <div class="row">
+
+                        <div class="col-md-4">
+
+                            <!--PRICE CONTENT START-->
+                            <div class="generic_content clearfix">
+
+                                <!--HEAD PRICE DETAIL START-->
+                                <div class="generic_head_price clearfix">
+
+                                    <!--HEAD CONTENT START-->
+                                    <div class="generic_head_content clearfix">
+
+                                        <!--HEAD START-->
+                                        <div class="head_bg"></div>
+                                        <div class="head">
+                                            <span>CONTACTO PARA OTRO MEDIO DE PAGO</span>
+                                        </div>
+                                        <!--//HEAD END-->
+
+                                    </div>
+                                    <!--//HEAD CONTENT END-->
+
+                                    <!--PRICE START-->
+                                    <div class="generic_price_tag clearfix">
+                                        <span class="price">
+                                            <span class="month">Un representante se pondra en contacto contigo</span>
+                                        </span>
+                                    </div>
+                                    <!--//PRICE END-->
+
+                                </div>
+
+
+                                <!--BUTTON START-->
+                                <div class="generic_price_btn clearfix">
+                                    <form method="POST" action="/confirmdata">
+                                        <button class="btn-lg" name="nrocarton" value={{ nrocarton + ',3' }}
+                                            type="submit">
+                                            RESERVAR</button>
+
+                                    </form>
+                                </div>
+                                <!--//BUTTON END-->
+
+                            </div>
+                            <!--//PRICE CONTENT END-->
+
+                        </div>
+                        <!--//BLOCK ROW END-->
+
+                    </div>
+                </div>
+            </section>
+            <footer>
+               <!--  <a class="bottom_btn" href="/index">Inicio</a> -->
+            </footer>
+        </div>
+
+    </div>
+</div>
+
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">CONDICIONES GENERALES</h4>
+
+               <!--  <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="scroll-box">
+                    <p>Artículo 1°: El presente Bingo Virtual 1º edición, es organizado por la Asociación
+                        Civil de Enfermedades Poco Frecuentes de Río Gallegos, a través del Agente Oficial
+                        de Rifas Héctor Raúl Barragán con registro LOAS N° 001/95, contando con siete
+                        partidas de bingo cuyos premios son los siguientes: 1º partida: $ 100.000, 2º partida:
+                        $ 100.000, 3º partida: $ 100.000, 4º partida: $ 150.000, 5º partida: $ 150.000,
+                        6º partida: $ 150.000 y 7º partida: $ 500.000 en efectivo. Otorga un total en premios
+                        de pesos un millón doscientos cincuenta mil ($ 1.250.000) y la venta está destinada
+                        únicamente para el ámbito de la Provincia de Santa Cruz.</p>
+                    <p>Artículo 2°: Se ha estipulado una emisión virtual de 5.000 boletas comercializables
+                        que van del 0000 al 4.999 y cuyo valor de venta se ha fijado en la suma de pesos mil
+                        ($ 1.000,00), pudiéndose abonar mediante los distintos medios de pago habilitados:
+                        débito automático, tarjeta de crédito y/o Mercado Pago.
+                    </p>
+                    <p>Artículo 3°: Las partidas del Bingo programado para el día sábado 14/11/2020 a
+                        partir de las 18 horas, se sorteará mediante la utilización de un bolillero o sorteadora,
+                        en la cual ingresarán 59 bolillas. El control de las mismas será computarizado y los
+                        números supervisados simultáneamente con el sorteo, determinando en forma
+                        inmediata la existencia de cartones ganadores. Corresponde un único premio por
+                        partida, en donde el adquirente participa con dos (2) cartones de Bingo con 10
+                        números cada uno que se encuentran de manera virtual en nuestra app y resultará
+                        ganador el comprador que llene en forma completa cualquiera de los dos cartones.
+                        La fiscalización del sorteo de Bingo estará a cargo del Personal de Lotería para
+                        Obras de Acción Social de la Provincia de Santa Cruz, un Escribano Público y
+                        miembros de la Asociación Civil de Enfermedades Poco Frecuentes de Río
+                        Gallegos.</p>
+                    <p>Artículo 4°: De resultar necesario, previa autorización de LOAS, la Comisión
+                        Directiva de la Asociación Civil de Enfermedades Poco Frecuentes de Río Gallegos
+                        podrá modificar la fecha, lugar y horario del bingo comprometiéndose a hacerlo
+                        conocer con la debida antelación mediante una campaña publicitaria por los medios
+                        de comunicación y redes sociales.</p>
+                    <p>Artículo 5°: Se prevee la transmisión del Bingo en vivo a partir de las 18 horas, a
+                        través de nuestra red social Facebook y canal de YouTube “Agencia HRB” y
+                        televisado en diferido a partir de las 22 horas por canal 9 para toda la Provincia de
+                        Santa Cruz, pero en caso de existir algún inconveniente de cualquier índole, ajeno a
+                        la Organización se procederá igualmente a la realización del sorteo dándose a
+                        conocer los ganadores en forma inmediata vía telefónica y los mismos serán
+                        publicados en los medios de difusión gráficos, radiales, televisivos y nuestras redes
+                        sociales.</p>
+                    <p>Artículo 6°: El adquirente será el único responsable de que el pago se efectúe en
+                        término y para tener derecho a percibir cualquiera de los premios que se otorgan
+                        deberá tener la boleta virtual totalmente cancelada veinticuatro (24) horas antes de
+                        la realización del bingo el día 14/11/2020. Cuando la compra se realice con débito
+                        automático, mercado pago y/o tarjeta de crédito, la Organización reconocerá la
+                        validez del pago una vez que la entidad financiera efectivice el mismo. En caso de
+                        llegar a rechazarlo, cualquiera fuera la causa, se perderá todo derecho a percibir
+                        premio alguno, no aceptándose ninguna clase de pago después de realizado el
+                        sorteo.</p>
+                    <p>Artículo 7°: En caso de ser favorecida alguna boleta anulada por cualquier causa, el
+                        sorteo se declarará nulo y se volverá a realizar nuevamente, con lo que se asegura
+                        la adjudicación de todos los premios del Bingo. En caso de existir más de un
+                        ganador en alguna partida, el premio será compartido por la cantidad de ganadores
+                        en partes iguales.
+                    </p>
+                    <p>Artículo 8°: La entrega de los premios de parte de la Organización a los ganadores
+                        se realizará mediante transferencias bancarias a sus respectivas cajas de ahorro,
+                        dentro de los 30 días de efectuado el sorteo del bingo y además los adjudicatarios
+                        de los distintos premios deberán cobrar los mismos dentro de un plazo de sesenta
+                        (60) días corridos a partir de la fecha de sorteo. Los premios no cobrados dentro de
+                        dicho plazo prescribirán automáticamente y pasarán a beneficio del Consejo
+                        Provincial de Educación.</p>
+                    <p>Artículo 9°: El cierre del presente bingo virtual, se realizará de acuerdo con las
+                        condiciones prescriptas por LOAS, veinticuatro (24) horas antes del sorteo previsto
+                        para el día 14/11/2020 y se labrará un acta de cierre ante Escribano Público,
+                        detallando las boletas virtuales que no participan del bingo.</p>
+                    <p>Artículo 10°: La administración y venta del presente bingo virtual estará a cargo del
+                        Agente Oficial de Rifas Héctor Raúl Barragán, con registro LOAS N° 001/95 y
+                        domicilio en Mariano Moreno 552 de la ciudad de Río Gallegos, lugar en donde se
+                        podrán efectuar cualquier tipo de consulta y/o reclamos. Los teléfonos fijos son
+                        (02966) 435467 o 428911 y WhatsApp 2966-489576 para recibir novedades,
+                        recordatorios, ganadores y estado de la boleta.</p>
+                    <p>Artículo 11°: Rigen para el presente bingo virtual 1º edición de la Asociación Civil de
+                        Enfermedades Poco Frecuentes de Río Gallegos, las normas prescriptas en las
+                        Leyes Provinciales Nº 2349, 2596, 2977 y 3041, su reglamentación y/o Resoluciones
+                        de LOAS para este tipo de eventos, así como también por la Ley Nacional Nº 25246
+                        y las resoluciones de la UIF vigentes.</p>
+                    <p>Artículo 12°: La compra del bingo virtual implica la aceptación de las presentes
+                        condiciones generales.</p>
+                </div>
+
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <form action="/personaldata" method="POST">
+                    <button class="btn btn-danger" name="nrocarton" value={{ nrocarton }} type="submit"> ACEPTO LAS CONDIONES GENERALES
+                    </button>
+                </form>
+                <!--   <button type="button" class="btn btn-danger" data-dismiss="modal">ACEPTO LAS CONDIONES
+                    GENERALES</button> -->
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- /#page-wrapper -->
+
+{% endblock %}
