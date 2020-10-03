@@ -1,4 +1,7 @@
-{% extends 'site_template.html' %}
+{% extends 'parent.html' %}
+{% set isPanel = "yes" %}
+{% block title %}Compra de cartón{% endblock %}
+{% block currentPage %}compra-carton{% endblock %}
 
 {% block body %}
 <script>
@@ -9,139 +12,44 @@
 
 <link rel="stylesheet" type="text/css" href="static\css\pricing.css">
 <div id="page-wrapper">
-
-    <div class="container-fluid">
-
-        <div id="generic_price_table">
-            <section>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <!--PRICE HEADING START-->
-                            <div class="price-heading clearfix">
-                                <h1>COMO DESEA PAGAR?</h1>
-                            </div>
-                            <!--//PRICE HEADING END-->
-                        </div>
-                    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="price-box">
+                <div class="">
+                    <div class="price-label basic">PAGO AL INSTANTE</div>
+                    <div class="price">MERCADO PAGO</div>
+                    <div class="price-info">Pagar con MERCADOPAGO</div>
                 </div>
-                <div class="container-fluid">
+                <div class="info">
+                        <form method="POST" action="/confirmdata">
+                            <button class="plan-btn" name="nrocarton" value={{ nrocarton + ',2' }} type="submit">
+                                PAGAR</button>
 
-                    <div class="col-md-4">
-
-                        <!--PRICE CONTENT START-->
-                        <div class="generic_content clearfix">
-
-                            <!--HEAD PRICE DETAIL START-->
-                            <div class="generic_head_price clearfix">
-
-                                <!--HEAD CONTENT START-->
-                                <div class="generic_head_content clearfix">
-
-                                    <!--HEAD START-->
-                                    <div class="head_bg"></div>
-                                    <div class="head">
-                                        <span>MERCADOPAGO</span>
-                                    </div>
-                                    <!--//HEAD END-->
-
-                                </div>
-                                <!--//HEAD CONTENT END-->
-
-                                <!--PRICE START-->
-                                <div class="generic_price_tag clearfix">
-                                    <span class="price">
-
-                                        <span class="month">Pagar con MERCADOPAGO</span>
-                                    </span>
-                                </div>
-                                <!--//PRICE END-->
-
-                            </div>
-                            <!--//HEAD PRICE DETAIL END-->
-
-                            <!--FEATURE LIST START-->
-
-                            <!--//FEATURE LIST END-->
-
-                            <!--BUTTON START-->
-                            <div>
-                                <form method="POST" action="/confirmdata">
-                                    <button class="btn-lg" name="nrocarton" value={{ nrocarton + ',2' }} type="submit">
-                                        PAGAR</button>
-
-                                </form>
-                            </div>
-                            <!--//BUTTON END-->
-
-                        </div>
-                        <!--//PRICE CONTENT END-->
-
-                    </div>
-                    <!--//BLOCK ROW END-->
-
-
-                    <div class="row">
-
-                        <div class="col-md-4">
-
-                            <!--PRICE CONTENT START-->
-                            <div class="generic_content clearfix">
-
-                                <!--HEAD PRICE DETAIL START-->
-                                <div class="generic_head_price clearfix">
-
-                                    <!--HEAD CONTENT START-->
-                                    <div class="generic_head_content clearfix">
-
-                                        <!--HEAD START-->
-                                        <div class="head_bg"></div>
-                                        <div class="head">
-                                            <span>CONTACTO PARA OTRO MEDIO DE PAGO</span>
-                                        </div>
-                                        <!--//HEAD END-->
-
-                                    </div>
-                                    <!--//HEAD CONTENT END-->
-
-                                    <!--PRICE START-->
-                                    <div class="generic_price_tag clearfix">
-                                        <span class="price">
-                                            <span class="month">Un representante se pondra en contacto contigo</span>
-                                        </span>
-                                    </div>
-                                    <!--//PRICE END-->
-
-                                </div>
-
-
-                                <!--BUTTON START-->
-                                <div class="generic_price_btn clearfix">
-                                    <form method="POST" action="/confirmdata">
-                                        <button class="btn-lg" name="nrocarton" value={{ nrocarton + ',3' }}
-                                            type="submit">
-                                            RESERVAR</button>
-
-                                    </form>
-                                </div>
-                                <!--//BUTTON END-->
-
-                            </div>
-                            <!--//PRICE CONTENT END-->
-
-                        </div>
-                        <!--//BLOCK ROW END-->
-
-                    </div>
+                        </form>
                 </div>
-            </section>
-            <footer>
-               <!--  <a class="bottom_btn" href="/index">Inicio</a> -->
-            </footer>
+            </div>
         </div>
+        <div class="col-lg-6">
+            <div class="price-box">
+                <div class="">
+                    <div class="price-label basic">PAGO OFFLINE</div>
+                    <div class="price">OTRA FORMA DE PAGO</div>
+                    <div class="price-info">Pagar con otra foma de pago, un representante se comunicará con vos</div>
+                </div>
+                <div class="info">
 
+
+                    <form method="POST" action="/confirmdata">
+                        <button class="plan-btn" name="nrocarton" value={{ nrocarton + ',3' }}
+                            type="submit">
+                            PAGAR</button>
+
+                    </form>                </div>
+            </div>
+        </div>
     </div>
-</div>
+
+
 
 <div class="modal" id="myModal">
     <div class="modal-dialog">

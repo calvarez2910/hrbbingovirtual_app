@@ -1,4 +1,7 @@
-{% extends 'site_template.html' %}
+{% extends 'parent.html' %}
+{% set isPanel = "yes" %}
+{% block title %}Cartón{% endblock %}
+{% block currentPage %}carton{% endblock %}
 <style>
 	.container {
 	  position: relative;
@@ -43,7 +46,7 @@
 		<span class="alert alert-primary" role="alert">
 			Carton nro: {{ cartonelegido[0].nrocarton}}
 		</span>
-		<div class="row">
+		<div class="row mt-4">
 
 			<div class="col-12">
 
@@ -146,7 +149,7 @@
 		<span class="alert alert-primary" role="alert">
 			Carton nro: {{ cartonelegido[1].nrocarton}}
 		</span>
-		<div class="row">
+		<div class="row mt-4">
 			<div class="col-12">
 
 				<table class="table table-bordered table-dark">
@@ -252,7 +255,7 @@
 				</form> -->
 				<button type="button" class="btn-lg btn-primary" data-toggle="modal"
 				data-target="#myModal" >
-				<i></i> 🤑 ME GUSTA! QUIERO COMPRARLO
+				<i class="fa fa-check-circle mr-1"></i> 🤑 ME GUSTA! QUIERO COMPRARLO
 			    </button>
 
 				{% endif %}

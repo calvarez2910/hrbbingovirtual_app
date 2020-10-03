@@ -1,14 +1,17 @@
-{% extends 'site_template.html' %}
-
+{% extends 'parent.html' %}
+{% set isPanel = "yes" %}
+{% block title %}Bienvenido{% endblock %}
+{% block currentPage %}panel{% endblock %}
 {% block body %}
-
 <div id="page-wrapper">
     <div class="container-fluid">
 
         <!-- Page Heading -->
         <div class="row">
             <div class="col-lg-12">
-                <hr>
+                <h5 class="page-header">
+                    RIFAS DISPONIBLES
+                </h5>
 
             </div>
         </div>
@@ -23,36 +26,36 @@
         <div class="row">
             {% with messages = get_flashed_messages() %}
             {% if messages %}
-            <ul class=flashes>
-                {% for message in messages %}
-                <li>
-                    <h1>{{ message }}</h1>
-                </li>
-                {% endfor %}
-            </ul>
+              <ul class=flashes>
+              {% for message in messages %}
+                <li><h1>{{ message }}</h1></li>
+              {% endfor %}
+              </ul>
             {% endif %}
-            {% endwith %}
+          {% endwith %}
             {% for i in rifas %}
             <form method="POST" action="/cartones">
-                <div class="col-lg-3 col-md-6">
-                    <div class="card">
-                        <img class="card-img-top img-responsive w-100" src="static\images\logonew1.jpg"
-                            alt="Card image cap">
+                <div class="col-lg-4 col-md-6 m-auto">
+                    <div class="" >
                         <div>
-                            <h3 class="card-title text-success text-center">Nuevo Bingo Virtual en Santa Cruz, para
+                            <h2 class="card-title">
+                                <img class="card-img-top img-responsive w-100" src="static\images\logonew1.jpg"
+                                alt="Card image cap">
+                            </h2>
+                            <h3 class="card-title text-center">Nuevo Bingo Virtual en Santa Cruz, para
                                 jugar, divertirte y ganar!
                             </h3>
-                            <a data-toggle="modal" data-target="#ModalCarousel"> <img src="static\images\hrb_bv.jpg"
-                                    class="img-fluid" alt="/static/images/logo1.png"></a>
+                            <a data-toggle="modal" data-target="#ModalCarousel"> <img src="static\images\hrb_bv.jpg" class="img-fluid"
+                                    alt="/static/images/logo1.png"></a>
 
                         </div>
                         <div class="card-body">
-                            <p>Haz clic enla imagen para ver los premios</p>
+                            <p>Haz clic en la imagen para ver los premios</p>
                             <button type="submit" name="rifa" class="btn-lg btn-primary"
-                                value={{ i.idcombinatoria }}>VER CARTONES DISPONIBLES</button>
-                            <div class="alert alert-success" role="alert">
+                            value={{ i.idcombinatoria }}>VER CARTONES DISPONIBLES</button>
+                            <div class="alert alert-success mt-2" role="alert">
                                 Faltan {{ dias }} dias para el sorteo!
-                            </div>
+                              </div>
 
 
                         </div>
@@ -77,47 +80,57 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div id="carousel-modal-demo" class="carousel slide" data-ride="carousel">
-
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-modal-demo" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-modal-demo" data-slide-to="1"></li>
+                        <li data-target="#carousel-modal-demo" data-slide-to="2"></li>
+                        <li data-target="#carousel-modal-demo" data-slide-to="4"></li>
+                        <li data-target="#carousel-modal-demo" data-slide-to="5"></li>
+                        <li data-target="#carousel-modal-demo" data-slide-to="6"></li>
+                        <li data-target="#carousel-modal-demo" data-slide-to="7"></li>
+                        <li data-target="#carousel-modal-demo" data-slide-to="8"></li>
+                      </ol>
 
 
                     <!-- Sliding images statring here -->
                     <div class="carousel-inner">
-                        <div class="item">
-                            <img src="static\images\partida1.jpg" alt="banana">
+                        <div class="carousel-item">
+                            <img src="static\images\partida1.jpg" class="d-block w-100" alt="1">
                         </div>
-                        <div class="item">
-                            <img src="static\images\partida2.jpg" alt="banana">
+                        <div class="carousel-item">
+                            <img src="static\images\partida2.jpg" class="d-block w-100" alt="2">
                         </div>
-                        <div class="item">
-                            <img src="static\images\partida3.jpg" alt="banana">
+                        <div class="carousel-item">
+                            <img src="static\images\partida3.jpg" class="d-block w-100" alt="3">
                         </div>
-                        <div class="item">
-                            <img src="static\images\partida4.jpg" alt="banana">
+                        <div class="carousel-item active">
+                            <img src="static\images\partida4.jpg" class="d-block w-100" alt="4">
                         </div>
-                        <div class="item">
-                            <img src="static\images\partida5.jpg" alt="banana">
+                        <div class="carousel-item">
+                            <img src="static\images\partida5.jpg" class="d-block w-100" alt="5">
                         </div>
-                        <div class="item">
-                            <img src="static\images\partida6.jpg" alt="banana">
+                        <div class="carousel-item">
+                            <img src="static\images\partida6.jpg" class="d-block w-100" alt="6">
                         </div>
-                        <div class="item">
-                            <img src="static\images\partida7.jpg" alt="banana">
+                        <div class="carousel-item">
+                            <img src="static\images\partida7.jpg" class="d-block w-100" alt="7">
                         </div>
-                        <div class="item">
-                            <img src="static\images\partida8.jpg" alt="banana">
+                        <div class="carousel-item">
+                            <img src="static\images\partida8.jpg" class="d-block w-100" alt="8">
                         </div>
-                        <div class="item active">
-                            <img src="static\images\inicio.jpg" alt="strawberries">
+                        <div class="carousel-item active">
+                            <img src="static\images\inicio.jpgg" class="d-block w-100" alt="9">
                         </div>
-
                     </div>
-                    <!-- Next / Previous controls here -->
-                    <a class="left carousel-control" href="#carousel-modal-demo" data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-left"></span>
-                    </a>
-                    <a class="right carousel-control" href="#carousel-modal-demo" data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right"></span>
-                    </a>
+                    <a class="carousel-control-prev" href="#carousel-modal-demo" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden"><span class="fa fa-chevron-left"></span></span>
+                      </a>
+                      <a class="carousel-control-next" href="#carousel-modal-demo" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden"><span class="fa fa-chevron-right"></span></span>
+                      </a>
+
 
                 </div>
             </div>

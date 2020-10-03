@@ -1,4 +1,7 @@
-{% extends 'site_template.html' %}
+{% extends 'parent.html' %}
+{% set isPanel = "yes" %}
+{% block title %}Confirmación personal{% endblock %}
+{% block currentPage %}confirmacion-personal{% endblock %}
 
 {% block body %}
 
@@ -8,7 +11,7 @@
         <strong>Info!</strong> Por favor, confirmar su informacion para continuar
     </div>
     <div class="row">
-        <div class="col-md-6 col-md-offset-3">
+        <div class="col-md-12">
 
             {% with messages = get_flashed_messages() %}
             {% if messages %}
@@ -33,7 +36,7 @@
                 </div>
                 <div class="panel-body">
                     <div class="row">
-                        <div class="col-lg-12">
+                        <div class="col-md-6">
 
                             <div><span>Nombres:</span></div>
                             <div class="form-group">
@@ -45,7 +48,7 @@
                                 <input type="text" name="apellido" id="apellido" tabindex="2" class="form-control"
                                     placeholder="Apellido" value="{{ user.apellido }}">
                             </div>
-                            <div><span>DNI::</span></div>
+                            <div><span>DNI:</span></div>
                         <div class="form-group">
                             <input type="number" name="dni" id="dni" tabindex="3" class="form-control"
                                 placeholder="DNI" value="{{ user.dni }}">
@@ -56,6 +59,8 @@
                                     class="form-control" placeholder="Domicilio Particular"
                                     value="{{ user.domiciliopart }}">
                             </div>
+                        </div>
+                        <div class="col-md-6">
                             <div><span>Localidad:</span></div>
                             <div class="form-group">
                                 <input type="text" name="localidad" id="localidad" tabindex="6" class="form-control"
@@ -83,15 +88,16 @@
                                 <input type="email" name="email" id="email" tabindex="1" class="form-control"
                                     placeholder="Email" value={{ user.email }}>
                             </div>
-
+                        </div>
+                        <div class="col-md-6 m-auto">
                             <div class="form-group">
                                 <div class="row">
-                                    <div class="col-sm-6 col-sm-offset-3">
+                                    <div class="col-12">
                                         <!--                                             <button class="generic_price_btn clearfix" name="nrocarton"
                                                 value={{ nrocarton }} type="submit"> Confirmar informacion Personal
                                             </button> -->
 
-                                        <button type="button" class="generic_price_btn clearfix" data-toggle="modal"
+                                        <button type="button" class="btn btn-warning btn-block btn-lg clearfix" data-toggle="modal"
                                             data-target="#myModal" onclick="getuservalues()">
                                             Confirmar informacion Personal
                                         </button>
