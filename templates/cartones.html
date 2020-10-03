@@ -34,11 +34,13 @@
 
 	}
 
+
 	#nroboleta {
 		width: 0%;
 		padding: 0px;
 		height: 0%;
 		background-color: rgb(144, 182, 144);
+		font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 
 	}
 </style>
@@ -49,9 +51,10 @@
 		<!-- Page Heading -->
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">
-					CARTONES DISPONIBLES
-				</h1>
+				<h3 class="page-header">
+					5.000 Boletas con 2 cartones de bingo cada uno
+					(usted participa con los 2 cartones)
+				</h3>
 				<!-- <ol class="breadcrumb">
 					<li>
 						<i class="fa fa-dashboard"></i> <a href="/">Rifas Disponibles</a>
@@ -65,16 +68,20 @@
 			<div class="panel panel-primary">
 				<div class="panel panel-primary">
 					<div class="panel-heading">
+
 						<br>
-						<h4>Mostrar Nro de carton desde hasta</h4>
+						<hr>
+						<h5>Mostrar Nro de boleta desde hasta</h5>
+
 					</div>
 					<div class="panel-body">
+
 						<form method="POST" action="/cartones">
 							<div class="container-fluid p-3 my-3 border">
 								<!-- <h3>Mostrar Nro de carton desde hasta</h3> -->
 								<div class="row">
 
-									<span>Desde</span><button class="btn btn-warning mx-auto d-block type=" submit
+									<span>Desde</span><button class="btn btn-warning mx-auto d-block" type="submit"
 										value={{desde}} name="btndesde">
 										{{desde}}</button>
 
@@ -94,8 +101,7 @@
 						<h5>BUSCAR UNA BOLETA EN ESPECIAL</h5>
 						<div class="input-group mt-3 mb-3">
 							<input type="text" class="form-control" aria-label="Buscar" id="nroboleta" name="nroboleta"
-								placeholder="BUSCAR" aria-label="Recipient's username"
-								aria-describedby="basic-addon2">
+								placeholder="BUSCAR" aria-label="Recipient's username" aria-describedby="basic-addon2">
 							<div class="input-group-append">
 								<button class="btn btn-warning" form="mainCartones" type="submit" name="btn"
 									value='searchBol'><i class="fa fa-search"></i></button>
@@ -123,7 +129,7 @@
 		<table id="dtBasicExample" class="dt-responsive" width="100%">
 			<thead id="innerTtable3">
 				<tr>
-					<th class="text-center">.</th>
+					<!-- <th class="text-center">.</th> -->
 					<th id="innerTtable3" class="text-center">
 						<h5> CARTON 1</h5>
 					</th>
@@ -139,7 +145,7 @@
 			<tbody id="innerTtable">
 				{% for i in boletasres %}
 				<tr id="innerTtable3">
-					<td id="nroboleta">{{ i.nroboleta }}</td>
+					<!-- <td id="nroboleta">{{ i.nroboleta }} </td> -->
 					<!-- <td id="nroboleta" class="success">
 							<form method="POST" action="/carton">
 								<button class="btn-sm btn-primary" name="nrocarton" value={{ i.nroboleta }}
@@ -154,7 +160,7 @@
 
 								<form method="POST" action="/carton">
 									<button class="btn btn-warning btn-sm text-dark btn-block text-center"
-										name="nrocarton" value={{ i.nroboleta }} type="submit">Boleta Nro:
+										name="nrocarton" value={{ i.nroboleta }} type="submit">CLICK PARA CONTINUAR:
 										{{ i.nroboleta }}</button>
 								</form>
 
@@ -266,7 +272,7 @@
 								<form method="POST" action="/carton">
 									<button class="btn btn-warning btn-sm text-dark btn-block text-center"
 										name="nrocarton" value={{ i.nroboleta }} type="submit">
-										<<<-Click para ver</button>
+										CLICK PARA CONTINUAR: {{ i.nroboleta }}</button>
 								</form>
 
 							</thead>
@@ -385,7 +391,7 @@
 		<!-- /.row -->
 		<div class="panel panel-primary">
 			<div class="panel-heading">
-				<h5>Mostrar Nro de carton desde hasta</h5>
+				<h5>Mostrar Nro de boleta desde hasta</h5>
 			</div>
 			<div class="panel-body">
 				<form method="POST" action="/cartones">
@@ -393,7 +399,7 @@
 						<!-- <h3>Mostrar Nro de carton desde hasta</h3> -->
 						<div class="row">
 
-							<span>Desde</span><button class="btn btn-warning mx-auto d-block type=" submit"
+							<span>Desde</span><button class="btn btn-warning mx-auto d-block" type="submit"
 								value={{desde}} name="btndesde">
 								{{desde}}</button>
 
@@ -420,6 +426,7 @@
 	// Basic example
 	$(document).ready(function () {
 		$('#dtBasicExample').DataTable({
+			"ordering": false,
 			"paging": false, // false to disable pagination (or any other option)
 			"responsive": true,
 			"bFilter": false,
@@ -427,10 +434,10 @@
 
 				"sProcessing": "Procesando...",
 				"sLengthMenu": "Ver de a _MENU_ Boletas",
-				"sZeroRecords": "No se encontraron resultados",
-				"sEmptyTable": "No hay Boletas disponibles",
+				"sZeroRecords": "Boleta vendida o reservada",
+				"sEmptyTable": "Boleta vendida o reservada",
 				"sInfo": "Mostrando _TOTAL_ Boletas disponibles",
-				"sInfoEmpty": "No hay Boletas disponibles",
+				"sInfoEmpty": "Boleta Vendida o Reservada",
 				"sInfoFiltered": "(filtrado de un total de _MAX_ Boletas)",
 				"sInfoPostFix": "",
 				"sSearch": "Buscar:",
