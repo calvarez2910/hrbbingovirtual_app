@@ -1122,7 +1122,7 @@ def exportpdf():
     API_ENDPOINT = "https://api.html2pdf.app/v1/generate"
 
 # your API key here
-    API_KEY = "8f1b02040bf568c9f60b1f9ce02dccced5c9dc7786dc8ebeb9e593d8a87f5743"
+    API_KEY = "*****************************************************"
 
 # data to be sent to api
     data_request = {'apiKey': API_KEY,
