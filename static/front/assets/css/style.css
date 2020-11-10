@@ -92,7 +92,17 @@ footer {
     text-align: center;
     padding: 4em 0;
 }
+.page-home .blockBody {
+    margin-top: 2em;
+    font-size: 1.3em;
+    max-width:500px;
+    margin-left:auto;
+    margin-right:auto;
+}
 
+.page-home #about .mainTitle {
+    padding-top: 0.8em;
+}
 .page-home footer {
     position: relative;
     /* top: -18em; */
@@ -249,7 +259,47 @@ footer {
         height: 150px;
     }
 
-
+@media screen and (min-width:799px){
+    .forma.forma1 {
+        width: 17%;
+        height: 100%;
+    }
+    .forma.forma2 {
+        width: 10%;
+        height: 100%;
+    }
+    .forma.forma3 {
+        width: 15%;
+        height: 100%;
+    }
+    .forma.forma4 {
+        width: 15%;
+        height: 100%;
+    }
+    .forma.forma5 {
+        width: 15%;
+        height: 100%;
+    }
+    .forma.forma6{
+        width: 20%;
+        top:-6em;
+        height: 100%;
+    }
+    .forma.forma7 {
+        width: 15%;
+        height: 100%;
+        top:1em;
+    }
+    .forma.forma8 {
+        width: 15%;
+        height: 100%;
+    }
+    .forma.forma9 {
+        width: 15%;
+        height:400px;
+        top:-15em!important;
+    }
+}
 
 div#navbarSupportedContent {
     transition: all 0.3s ease-in-out;
@@ -297,6 +347,7 @@ section#current {
     background-position: center bottom;
     /* top:-11em ; */
     min-height:500px;
+    padding-bottom:5em;
 }
 section#contact {
         position:relative;
@@ -311,6 +362,7 @@ section#contact {
     /* top:-13em ; */
     min-height:500px;
     margin-top:-3em;
+    padding-bottom:5em;
 }
 
 h1 small {
@@ -374,8 +426,8 @@ h1 small {
 .forma4{
     top:-0.5em;
 
-     right:0;
-     left:inherit;
+     left:0;
+     right:inherit;
         width:30%;
         
         background-image: url("../img/formas4.png");
@@ -420,14 +472,18 @@ h1 small {
         background-image: url("../img/formas9.png");
 }
 .forma.forma1 {
-    width: 100px;
-    height: 300px;
+    width: 150px;
+    height: 400px;
     background-size: 100%;
-    left: inherit;
-    right: 0;
+    left: 0;
 }
 
-.forma.forma2 {width: 1;width: 130px;}
+.forma.forma2 {
+    width: 105px;
+    right: 0px;
+    left: inherit;
+    height: 200px;
+}
 
 .forma.forma3 {
     width: 90px;
@@ -465,7 +521,9 @@ h1 small {
 
 .forma.forma9 {
     left: 0;
-    width: 100px;
+    width: 80px;
+    top: -5em;
+    height: 100%;
 }
 
 
@@ -490,11 +548,15 @@ body {
 .forma.forma4 {
     z-index: 5;
     height: 300px;
-    width: 130px;
+    width: 120px;
 }
 
 .forma.forma5 {
     z-index: 111;
+    right: 0;
+    left: inherit;
+    width: 110px;
+    height: 100%;
 }
 
 .forma.forma7 {
@@ -961,4 +1023,19 @@ td#nroboleta {
 
 footer{
     font-family: "Roboto", arial;
+}
+
+#formFooter ol li, #formFooter ol p {
+    list-style: none;
+    font-size: 16px;
+    margin-bottom: 0.5em;
+}
+
+#formFooter ol {
+    padding: 0;
+    margin: 0;
+}
+nav.navbar.navbar-expand-lg.navbar-light.bg-light.fixed-top {
+    max-width: 1050px;
+    margin: 0 auto;
 }
