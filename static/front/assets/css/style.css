@@ -1038,7 +1038,25 @@ footer{
     padding: 0;
     margin: 0;
 }
-nav.navbar.navbar-expand-lg.navbar-light.bg-light.fixed-top {
+nav.navbar.fixed-top {
     max-width: 1050px;
     margin: 0 auto;
+}
+
+nav.navbar:after{
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgb(0 0 0 / 0%) 0%, rgb(0 0 0 / 21%) 100%);
+    content: '';
+    width: 100%;
+    height: 100px;
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    opacity:0;
+    transition: all 0.3s ease-in-out;
+}
+
+nav.navbar.scrolled:after{
+    opacity:1;
 }
