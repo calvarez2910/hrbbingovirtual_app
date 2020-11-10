@@ -299,6 +299,9 @@ footer {
         height:400px;
         top:-15em!important;
     }
+    h4#fuentenro {
+        font-size: 32px;
+    }
 }
 
 div#navbarSupportedContent {
